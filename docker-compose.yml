@@ -1,0 +1,117 @@
+version: '3.9'
+
+services:
+
+  # ─────────────────────────────────────────────
+  # PostgreSQL 16
+  # ─────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: prixTunisix_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: prix_tunisix
+      POSTGRES_USER: prix_user
+      POSTGRES_PASSWORD: prix_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - prixTunisix
+
+  # ─────────────────────────────────────────────
+  # Redis 7
+  # ─────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: prixTunisix_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - prixTunisix
+
+  # ─────────────────────────────────────────────
+  # Laravel API backend
+  # ─────────────────────────────────────────────
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: prixTunisix_backend
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+      - /var/www/vendor
+    environment:
+      APP_ENV: local
+      APP_KEY: base64:CHANGE_ME
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: prix_tunisix
+      DB_USERNAME: prix_user
+      DB_PASSWORD: prix_pass
+      CACHE_DRIVER: redis
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      SANCTUM_STATEFUL_DOMAINS: localhost:3000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - prixTunisix
+    command: php artisan serve --host=0.0.0.0 --port=8000
+
+  # ─────────────────────────────────────────────
+  # Next.js frontend
+  # ─────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: prixTunisix_frontend
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - prixTunisix
+
+  # ─────────────────────────────────────────────
+  # Python scraper (Scrapy + Celery)
+  # ─────────────────────────────────────────────
+  scraper:
+    build:
+      context: ./scraper
+      dockerfile: Dockerfile
+    container_name: prixTunisix_scraper
+    restart: unless-stopped
+    environment:
+      BACKEND_API_URL: http://backend:8000/api
+      REDIS_URL: redis://redis:6379/0
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: prix_tunisix
+      DB_USER: prix_user
+      DB_PASS: prix_pass
+    depends_on:
+      - postgres
+      - redis
+      - backend
+    networks:
+      - prixTunisix
+
+volumes:
+  postgres_data:
+
+networks:
+  prixTunisix:
+    driver: bridge
