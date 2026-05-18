@@ -1,0 +1,35 @@
+@startuml
+title Séquence Connexion
+
+actor User
+participant "Interface" as ui
+participant ":Controller" as ctrl
+participant ":AuthService" as auth
+participant ":User" as userModel
+database "Database" as db
+
+User->ui: Entrer email et mot de passe
+ui->ctrl: POST /login (email, password)
+ctrl->auth: login(credentials)
+
+auth->userModel: where(email)
+userModel->db: find user
+db-->userModel: user trouvé
+userModel-->auth: user
+
+alt Utilisateur trouvé
+    auth->auth: verifyPassword(password)
+    auth-->auth: password correct
+    
+    auth->userModel: createToken()
+    userModel-->auth: JWT token
+    
+    auth-->ctrl: token
+    ctrl->ui: success
+    ui-->User: Connecté
+else Utilisateur non trouvé
+    auth-->ctrl: erreur
+    ctrl->ui: erreur
+    ui-->User: Email non trouvé
+end
+@enduml

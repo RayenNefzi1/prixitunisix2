@@ -1,0 +1,21 @@
+@startuml
+actor Client
+participant FavoriteController
+participant Favorite
+participant Product
+database Database
+
+Client -> FavoriteController: POST /favorites (product_id)
+FavoriteController -> Product: find(product_id)
+
+alt Produit existe
+    rectangle "Ajouter aux favoris" {
+        FavoriteController -> Favorite: create(client_id, product_id)
+        Favorite -> Database: save()
+    }
+    
+    FavoriteController --> Client: "Favori ajouté"
+else Produit non trouvé
+    FavoriteController --> Client: "Produit non trouvé", 404
+end
+@enduml

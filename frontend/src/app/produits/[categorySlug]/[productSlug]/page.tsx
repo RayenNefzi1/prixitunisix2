@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import api from '@/lib/api'
+import { isLoggedIn } from '@/lib/auth'
 import PriceHistoryChart from '@/components/product/PriceHistoryChart'
-import { Heart, Bell, ExternalLink, Tag, ArrowLeft, TrendingDown, CheckCircle } from 'lucide-react'
+import { Heart, Bell, ExternalLink, Tag, ArrowLeft, TrendingDown, CheckCircle, BellOff } from 'lucide-react'
 
 interface Offer {
   id: number
@@ -34,6 +35,13 @@ export default function ProductDetailPage() {
   const [product, setProduct]     = useState<Product | null>(null)
   const [loading, setLoading]     = useState(true)
   const [notFound, setNotFound]   = useState(false)
+  const [showAlertForm, setShowAlertForm] = useState(false)
+  const [targetPrice, setTargetPrice] = useState('')
+  const [creatingAlert, setCreatingAlert] = useState(false)
+  const [alertCreated, setAlertCreated] = useState(false)
+  const [isFavorited, setIsFavorited] = useState(false)
+  const [togglingFavorite, setTogglingFavorite] = useState(false)
+  const [productAlert, setProductAlert] = useState<{ id: number; target_price: number; reached: boolean } | null>(null)
 
   useEffect(() => {
     api.get(`/produits/${categorySlug}/${productSlug}`)
@@ -44,6 +52,54 @@ export default function ProductDetailPage() {
       })
       .finally(() => setLoading(false))
   }, [categorySlug, productSlug])
+
+  // Track product view
+  useEffect(() => {
+    if (product && isLoggedIn()) {
+      api.post('/client/track-view', { product_id: product.id })
+        .catch(err => console.error('Failed to track view:', err))
+    }
+  }, [product])
+
+  // Check if product is favorited
+  useEffect(() => {
+    if (product && isLoggedIn()) {
+      api.get('/favorites')
+        .then(res => {
+          const favIds = res.data.map((f: { id: number }) => f.id)
+          setIsFavorited(favIds.includes(product.id))
+        })
+        .catch(() => {})
+    }
+  }, [product])
+
+  // Check if product has alert
+  useEffect(() => {
+    if (product && isLoggedIn()) {
+      api.get('/client/alerts')
+        .then(res => {
+          const alert = res.data.find((a: { product: { id: number } }) => a.product?.id === product.id)
+          if (alert) {
+            setProductAlert({ id: alert.id, target_price: alert.target_price, reached: alert.reached })
+          }
+        })
+        .catch(() => {})
+    }
+  }, [product])
+
+  // Toggle favorite
+  const toggleFavorite = async () => {
+    if (!isLoggedIn()) return
+    setTogglingFavorite(true)
+    try {
+      const res = await api.post('/favorites/toggle', { product_id: product.id })
+      setIsFavorited(res.data.status === 'added')
+    } catch (err) {
+      console.error('Failed to toggle favorite:', err)
+    } finally {
+      setTogglingFavorite(false)
+    }
+  }
 
   if (loading) {
     return (
@@ -73,6 +129,31 @@ export default function ProductDetailPage() {
   const availableOffers = product.offers.filter(o => o.is_available).sort((a, b) => a.price - b.price)
   const bestOffer       = availableOffers[0]
   const bestPrice       = bestOffer?.price
+
+  const createAlert = async () => {
+    if (!targetPrice || !bestPrice) return
+    setCreatingAlert(true)
+    try {
+      const res = await api.post('/client/alerts', {
+        product_id: product.id,
+        target_price: parseFloat(targetPrice),
+      })
+      setAlertCreated(true)
+      setProductAlert({ id: res.data.id, target_price: parseFloat(targetPrice), reached: false })
+      // Trigger storage event for real-time updates
+      localStorage.setItem('alerts_updated', Date.now().toString())
+      localStorage.removeItem('alerts_updated')
+      setTimeout(() => {
+        setAlertCreated(false)
+        setShowAlertForm(false)
+        setTargetPrice('')
+      }, 2000)
+    } catch (err) {
+      console.error('Failed to create alert:', err)
+    } finally {
+      setCreatingAlert(false)
+    }
+  }
 
   const catSlug  = product.category?.code ?? categorySlug
   const catName  = product.category?.name
@@ -124,6 +205,71 @@ export default function ProductDetailPage() {
                   sur {availableOffers.length} offres
                 </span>
               )}
+{/* Favorite Button */}
+              <button
+                onClick={toggleFavorite}
+                disabled={togglingFavorite}
+                className={`p-2 rounded-full transition ${isFavorited ? 'bg-red-100 text-red-500' : 'bg-gray-100 text-gray-500 hover:text-red-500 hover:bg-red-50'}`}
+                title="Ajouter aux favoris"
+              >
+                <Heart className={`w-5 h-5 ${isFavorited ? 'fill-current' : ''}`} />
+              </button>
+              {/* Price Alert Button - show status */}
+              <button
+                onClick={() => setShowAlertForm(!showAlertForm)}
+                className={`p-2 rounded-full transition ${
+                  alertCreated 
+                    ? 'bg-green-100 text-green-600' 
+                    : productAlert?.reached 
+                      ? 'bg-green-100 text-green-600' 
+                      : productAlert 
+                        ? 'bg-yellow-100 text-yellow-600'
+                        : 'bg-gray-100 text-gray-500 hover:text-brand-600 hover:bg-brand-50'
+                }`}
+                title={productAlert ? `Alerte: ${productAlert.target_price.toFixed(3)} TND` : 'Créer une alerte prix'}
+              >
+                {alertCreated ? <CheckCircle className="w-5 h-5" /> : <Bell className="w-5 h-5" />}
+              </button>
+            </div>
+          )}
+
+          {/* Alert Form */}
+          {showAlertForm && bestPrice && (
+            <div className="mb-4 p-4 bg-brand-50 border border-brand-100 rounded-xl">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <Bell className="w-4 h-4 text-brand-600" />
+                  <span className="text-sm font-semibold text-brand-800">
+                    {productAlert ? 'Alerte active' : 'Créer une alerte prix'}
+                  </span>
+                </div>
+                {productAlert && (
+                  <span className={`text-xs px-2 py-1 rounded-full ${productAlert.reached ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                    {productAlert.reached ? '✓ Prix atteint!' : `Objectif: ${productAlert.target_price.toFixed(3)} TND`}
+                  </span>
+                )}
+              </div>
+              <div className="flex items-center gap-2">
+                <input
+                  type="number"
+                  step="0.001"
+                  min="0"
+                  placeholder={`Prix cible (actuel: ${bestPrice.toFixed(3)})`}
+                  value={targetPrice}
+                  onChange={e => setTargetPrice(e.target.value)}
+                  className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none"
+                />
+                <button
+                  onClick={createAlert}
+                  disabled={creatingAlert || !targetPrice}
+                  className="px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded-lg hover:bg-brand-700 disabled:opacity-50 transition"
+                >
+                  {creatingAlert ? '...' : productAlert ? 'Mettre à jour' : 'Créer'}
+                </button>
+              </div>
+              <p className="text-xs text-brand-700 mt-2">
+                Vous serez notifié quand le prix atteint ou dépasse votre cible.
+              </p>
             </div>
           )}
 

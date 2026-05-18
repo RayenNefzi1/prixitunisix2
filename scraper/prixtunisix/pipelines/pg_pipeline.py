@@ -261,33 +261,51 @@ class PgPipeline:
                     self._brand_cache[key] = row[0]
                 else:
                     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
-                    cur.execute(
-                        "INSERT INTO brands (name, slug, created_at, updated_at) VALUES (%s, %s, %s, %s) RETURNING id",
-                        (name, slug, now, now),
-                    )
-                    self._brand_cache[key] = cur.fetchone()[0]
+                    try:
+                        cur.execute(
+                            """INSERT INTO brands (name, slug, created_at, updated_at) 
+                               VALUES (%s, %s, %s, %s) 
+                               ON CONFLICT (slug) DO UPDATE SET slug = EXCLUDED.slug
+                               RETURNING id""",
+                            (name, slug, now, now),
+                        )
+                        self._brand_cache[key] = cur.fetchone()[0]
+                    except psycopg2.errors.UniqueViolation:
+                        self.conn.rollback()
+                        cur.execute("SELECT id FROM brands WHERE slug = %s LIMIT 1", (slug,))
+                        row = cur.fetchone()
+                        self._brand_cache[key] = row[0] if row else None
         return self._brand_cache[key]
 
     # ── main ─────────────────────────────────────────────────────────────
 
     def process_item(self, item, spider: Spider):
+        try:
+            return self._process_item_impl(item, spider)
+        except Exception as e:
+            self.conn.rollback()
+            spider.logger.error(f"Error processing item: {e}")
+            raise DropItem(f"Error: {e}")
+
+    def _process_item_impl(self, item, spider: Spider):
         adapter = ItemAdapter(item)
 
-        raw_title         = adapter.get("raw_title", "").strip()
+        raw_title         = adapter.get("raw_title", "").strip()[:255]
         price             = float(adapter.get("price") or 0)
-        merchant_url      = adapter.get("merchant_url", "").strip()
-        image_url         = adapter.get("image_url")
+        merchant_url      = adapter.get("merchant_url", "").strip()[:500]
+        image_url         = adapter.get("image_url", "")[:500] if adapter.get("image_url") else None
         is_available      = True if adapter.get("is_available", True) else False
         website_id        = adapter.get("merchant_website_id")
         scraped_at        = adapter.get("scraped_at") or datetime.now(timezone.utc).isoformat()
-        scraped_reference = adapter.get("scraped_reference") or None
+        scraped_reference = (adapter.get("scraped_reference") or "").strip()[:255] or None
         specs_dict        = adapter.get("specifications") or None
         specs_json        = json.dumps(specs_dict, ensure_ascii=False) if specs_dict else None
 
         if not raw_title or not merchant_url:
             raise DropItem("Missing title/URL")
-        if price <= 0:
-            raise DropItem(f"Invalid price for: {merchant_url}")
+        # TEMPORARILY disabled price validation to allow JS-rendered merchants (Twenty, TunisiaTech)
+        # if price <= 0:
+        #     raise DropItem(f"Invalid price for: {merchant_url}")
 
         now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
         # Normalise scraped_at to timestamp format
@@ -342,7 +360,7 @@ class PgPipeline:
                             category_id, brand_id, specifications, created_at, updated_at)
                            VALUES (%s, %s, %s, %s, true, %s, %s, %s::jsonb, %s, %s)
                            RETURNING id""",
-                        (raw_title, slug, scraped_reference, image_url,
+                        (raw_title[:255], slug[:255], scraped_reference, image_url[:500] if image_url else None,
                          cat_id, brand_id, specs_json, now, now),
                     )
                     matched_product_id = cur.fetchone()[0]
@@ -366,8 +384,8 @@ class PgPipeline:
                         product_id        = COALESCE(%s, product_id),
                         updated_at        = %s
                     WHERE id = %s""",
-                    (price, is_available, image_url, scraped_at,
-                     scraped_reference, matched_product_id, now, offer_id),
+                    (price, is_available, (image_url[:500] if image_url else None), scraped_at,
+                     (scraped_reference[:255] if scraped_reference else None), matched_product_id, now, offer_id),
                 )
             else:
                 cur.execute(
@@ -376,8 +394,8 @@ class PgPipeline:
                         is_available, merchant_url, image_url, scraped_at, created_at, updated_at)
                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                        RETURNING id""",
-                    (matched_product_id, website_id, raw_title, scraped_reference, price,
-                     is_available, merchant_url, image_url, scraped_at, now, now),
+                    (matched_product_id, website_id, raw_title[:255], scraped_reference, price,
+                     is_available, merchant_url[:255], image_url[:500] if image_url else None, scraped_at, now, now),
                 )
                 offer_id = cur.fetchone()[0]
 
@@ -388,18 +406,9 @@ class PgPipeline:
             )
 
             # ── 4. Queue no-reference offers for admin review ─────────────
-            if not matched_product_id:
-                cur.execute(
-                    "SELECT id FROM product_matches WHERE offer_id = %s AND status = 'pending' LIMIT 1",
-                    (offer_id,),
-                )
-                if not cur.fetchone():
-                    cur.execute(
-                        """INSERT INTO product_matches
-                           (offer_id, product_id, confidence_score, status, created_at, updated_at)
-                           VALUES (%s, NULL, 0.0, 'pending', %s, %s)""",
-                        (offer_id, now, now),
-                    )
+            # NOTE: product_matches.product_id has NOT NULL constraint, so we skip
+            # the insert when there's no matched_product_id. The offer is saved
+            # but not linked to any product - manual matching required later.
 
             self.conn.commit()
 

@@ -1,0 +1,34 @@
+@startuml
+actor Marchand
+participant OfferController
+participant Offer
+database Database
+
+' === CREER OFFRE ===
+Marchand -> OfferController: POST /offers (product_id, price, url)
+rectangle "Créer nouvelle offre" {
+    OfferController -> Offer: create(product_id, merchant_id, price, url)
+    Offer -> Database: save()
+}
+OfferController --> Marchand: "Offre créée"
+
+===
+
+' === MODIFIER OFFRE ===
+Marchand -> OfferController: PUT /offers/{id} (price, url)
+OfferController -> Offer: find(id)
+rectangle "Mettre à jour offre" {
+    Offer -> Database: update(price, url)
+}
+OfferController --> Marchand: "Offre mise à jour"
+
+===
+
+' === SUPPRIMER OFFRE ===
+Marchand -> OfferController: DELETE /offers/{id}
+OfferController -> Offer: find(id)
+rectangle "Supprimer offre" {
+    Offer -> Database: delete()
+}
+OfferController --> Marchand: "Offre supprimée"
+@enduml

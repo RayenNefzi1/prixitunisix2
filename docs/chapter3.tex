@@ -1,0 +1,390 @@
+\chapter*{Chapter 3}
+\markboth{Chapter 3}{3 Implementation - Phase 1: Sprints 1-3}
+\addcontentsline{toc}{chapter}{3 Implementation - Phase 1: Sprints 1-3}
+
+\textsc{\textbf{\Huge Implementation - Phase 1}} \\ \\
+
+\stepcounter{chapter}
+
+% ============================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+This chapter presents the implementation work completed during
+the first phase of the project, covering Sprints 1 through 3.
+This phase established the fundamental infrastructure that
+the entire platform depends upon. Unlike the analysis and
+architecture work of Sprint 0, these sprints focused on
+delivering functional features that users can interact with
+directly. The three main areas of focus were the user
+authentication system, the product catalog and search
+functionality, and the automated data scraping pipeline.
+Each sprint built upon the previous one, creating a solid
+foundation for all subsequent development work. The decisions
+made during implementation prioritized code quality,
+maintainability, and scalability to ensure the platform could
+grow beyond its initial scope.
+
+% ============================================================
+\section*{Sprint 1: Authentication and User Management}
+\addcontentsline{toc}{section}{Sprint 1: Authentication and User Management}
+
+\subsection*{Sprint Overview}
+
+Sprint 1 concentrated on building a robust authentication system
+capable of handling multiple user types with different access
+levels. The primary objective was to create a secure login and
+registration process that could distinguish between five distinct
+user roles: visitors, clients, merchants, suppliers, and
+administrators. This sprint was critical because all other
+features depend on correctly identifying and authorizing users.
+Without a reliable authentication system, there would be no way
+to personalize experiences, save preferences, or protect sensitive
+functionality from unauthorized access.
+
+The platform needed to support visitors who browse without
+creating an account, clients who need personalized features like
+favorites and price alerts, merchants who manage their product
+offerings, suppliers who operate the data scraping tools, and
+administrators who oversee the entire system. Each role required
+access to different parts of the application, so the permission
+system needed to be granular and reliable.
+
+A two-step registration process was implemented to enhance
+security and ensure data quality. Users first create their
+account with basic information, then verify their phone number
+through a one-time code sent by SMS. This verification step
+serves multiple purposes: it confirms the phone number is valid,
+enables future price alert notifications, and adds a layer of
+protection against fake accounts.
+
+The technology stack for this sprint centered on Laravel Fortify
+for authentication logic, Laravel Sanctum for API token generation,
+and Twilio for SMS delivery of verification codes. This
+combination provided a mature, well-tested foundation that
+integrated smoothly with the existing Laravel framework.
+
+\subsection*{Implementation Details}
+
+The user model was extended with a role field that determines
+what features each user can access. Rather than creating separate
+tables for each user type, a single users table holds all
+accounts with a role column that can be set to client, merchant,
+employee, supplier, or admin. This approach simplifies the
+database structure and makes it easy to add new roles in the
+future without modifying the schema.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3cm}|m{6cm}|m{4cm}|}
+\hline
+\textbf{Model} & \textbf{Key Attributes} & \textbf{Purpose} \\ \hline
+User & name, prename, email, phone, role & Core authentication entity \\ \hline
+PhoneOtp & phone, code, expires\_at & Temporary verification codes \\ \hline
+Client & user\_id, phone & Extended profile for clients \\ \hline
+Merchant & user\_id, company\_name, is\_verified & Extended profile for merchants \\ \hline
+Employee & user\_id, position & Platform operators \\ \hline
+Supplier & user\_id, api\_key, merchant\_website\_id & Data provider access \\ \hline
+\end{tabular}
+\caption{Authentication Models}
+\label{tab:auth_models}
+\end{center}
+\end{table}
+
+The authentication flow follows a clear sequence. When a user
+submits their registration details, the system generates a
+verification code and stores it in the PhoneOtp table with an
+expiration time. The code is sent via Twilio to the phone number
+provided. The user then enters this code to complete registration.
+Only after successful verification does the account become active.
+
+During login, the system validates credentials and generates a
+JWT token using Laravel Sanctum. This token must be included in
+all subsequent API requests to authenticate the user. The token
+expires after a configurable time period, requiring users to
+log in again after extended inactivity.
+
+A custom RoleMiddleware was implemented to protect routes based
+on user roles. This middleware inspects the user's role before
+allowing access to specific endpoints. For example, only users
+with the admin role can access the administrative dashboard,
+while only authenticated clients can create price alerts. This
+approach ensures that users cannot accidentally or intentionally
+access features intended for other roles.
+
+The User model includes helper methods that make role checking
+simple throughout the application. Methods like is admin,
+is client, is merchant, and is supplier return true or false
+values indicating whether the current user belongs to that
+role. These methods are used in controllers, middleware, and
+views to conditionally display content and functionality.
+
+Testing validated that the authentication system worked correctly
+in all scenarios. New users could register and verify their
+phone numbers successfully. Returning users could log in with
+valid credentials and receive valid tokens. Users attempting
+to access endpoints outside their role were properly rejected
+with appropriate error messages. The logout process correctly
+invalidated tokens, preventing further use after disconnection.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Login page / Registration form / API response}
+\end{center}
+\caption{Authentication Interface}
+\label{fig:auth_interface}
+\end{figure}
+
+% ============================================================
+\section*{Sprint 2: Product Catalog and Search}
+\addcontentsline{toc}{section}{Sprint 2: Product Catalog and Search}
+
+\subsection*{Sprint Overview}
+
+Sprint 2 built the core functionality that makes PrixTunisix
+useful to its visitors: the product catalog and search system.
+This sprint focused on creating a comprehensive database of
+products that users could browse, filter, and search to find
+the items they wanted at the best prices. The catalog serves
+as the foundation for all other client-facing features,
+including price comparisons, favorites, and alerts.
+
+The product data model needed to support several key requirements.
+Products needed to belong to categories and brands for organized
+browsing. Each product could have multiple offers from different
+merchants at different prices. The system needed to calculate the
+lowest price across all available offers for each product.
+Price history needed to be tracked over time to show trends.
+
+Categories presented a particular challenge because they needed
+to support hierarchical organization. A product category like
+Electronics could contain subcategories like Computers, Phones,
+and Accessories. Those subcategories could contain further
+subcategories. This recursive structure required a self-referential
+database design using a parent identifier foreign key.
+
+The search functionality needed to support multiple approaches.
+Users should be able to search by typing product names or
+descriptions. They should be able to filter by category to see
+only products in a specific area. They should be able to filter
+by brand to see only products from manufacturers they prefer.
+Results should be sortable by price or by newest first.
+
+Several specialized controllers were created to handle different
+aspects of the catalog. The ProductController manages product
+CRUD operations and validation. The CategoryController handles
+the hierarchical category structure. The BrandController manages
+manufacturer information. The SearchController processes search
+queries and applies filters. Additional controllers handle
+boutique pages for specific merchants, marque pages for specific
+brands, and an artificial intelligence chatbot for user assistance.
+
+The most important feature implemented was the lowest price
+calculation. For every product displayed, the system shows the
+cheapest available offer from all merchants. This calculation
+is performed by querying the database for the minimum price among
+all offers where the offer is marked as available. This simple method
+proved essential for the user experience, as users come to the
+site specifically to find the best deals.
+
+Price history tracking was added to show how prices have changed
+over time. The system stores every observed price for every
+offer in an append-only history table. Users can view the last
+30 days of price changes as an interactive chart, helping them
+decide whether to buy now or wait for a better price.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3cm}|m{6cm}|}
+\hline
+\textbf{Model} & \textbf{Relationships} \\ \hline
+Product & belongs to Category, Brand; has many Offers, PriceAlerts, Favorites \\ \hline
+Category & belongs to parent Category; has many children Categories, Products \\ \hline
+Brand & has many Products \\ \hline
+Offer & belongs to Product, Merchant, MerchantWebsite; has many PriceHistory \\ \hline
+PriceHistory & belongs to Offer (immutable price records) \\ \hline
+\end{tabular}
+\caption{Catalog Data Models}
+\label{tab:catalog_models}
+\end{center}
+\end{table}
+
+The search implementation processes queries in several stages.
+First, the system determines whether the user is searching by
+keyword, filtering by category, or filtering by brand. Then it
+constructs the appropriate database query with the relevant
+filters applied. For keyword searches, it matches against product
+names, descriptions, and reference numbers. For each product
+found, the system calculates the lowest available price by
+querying all associated offers. Results are returned sorted by
+the specified criteria, whether price ascending, price descending,
+or newest first.
+
+Pagination ensures that large result sets are delivered in
+manageable chunks. Rather than returning thousands of products
+at once, the API returns a limited number per page along with
+metadata indicating how many total results exist and how many
+pages there are. This approach keeps response times fast while
+allowing users to browse through all available products.
+
+Testing confirmed that the search system performed well under
+load. Keyword searches returned relevant results quickly.
+Filters correctly narrowed results to the specified categories
+and brands. The lowest price display was accurate across all
+products tested. Category navigation worked smoothly with
+deep hierarchies. The system handled large product catalogs
+without noticeable performance degradation.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Product listing page / Search results / Product details}
+\end{center}
+\caption{Product Catalog Interface}
+\label{fig:catalog_interface}
+\end{figure}
+
+% ============================================================
+\section*{Sprint 3: Data Scraping System}
+\addcontentsline{toc}{section}{Sprint 3: Data Scraping System}
+
+\subsection*{Sprint Overview}
+
+Sprint 3 addressed the challenge of getting pricing data into
+the platform automatically. Without an automated scraping system,
+the platform would require manual data entry for every merchant
+and every product, which would be impossible to maintain at scale.
+This sprint built the infrastructure that continuously collects
+pricing information from partner merchant websites.
+
+The scraping system works by configuring scripts that define
+what websites to scrape, how often to run, and what data to
+extract. When a script executes, it fetches the target web pages,
+parses the HTML to extract product information and prices, and
+saves the results to the database. This happens on a scheduled
+basis so that prices stay current without manual intervention.
+
+A critical challenge was matching scraped data to products already
+in the catalog. When scraping a merchant website, the system gets
+raw product information that may not exactly match how products
+have been entered in our system. Product names might be slightly
+different, references might use different formats, or products
+might be missing entirely. The matching system addresses this by
+comparing scraped data against existing products to find the
+best matches.
+
+The matching algorithm uses several factors to determine
+similarity. Text similarity compares product names to find
+likely matches. Reference matching looks for identical product
+references across different sources. The system calculates a
+confidence score from 0 to 100 percent indicating how sure it
+is about each match. Products with high confidence scores are
+automatically approved, while lower scores are flagged for human
+review.
+
+Suppliers can access the scraping system through an API that
+allows external partners to submit their own data. Each supplier
+receives an API key for authentication and can configure which
+websites their data comes from. This opens the possibility of
+working with additional data sources without requiring internal
+scraping scripts for every merchant.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3.5cm}|m{5.5cm}|}
+\hline
+\textbf{Model} & \textbf{Description} \\ \hline
+MerchantWebsite & Partner website configuration (base URL, logo, active status) \\ \hline
+ScrapingScript & Scraping job configuration (target URL, frequency, schedule) \\ \hline
+ScrapingLog & Execution history (start time, records collected, errors) \\ \hline
+ProductMatch & Match between scraped offer and catalog product with confidence score \\ \hline
+Supplier & Extended user with API key for external data submission \\ \hline
+\end{tabular}
+\caption{Scraping Data Models}
+\label{tab:scraping_models}
+\end{center}
+\end{table}
+
+The scraping execution follows a well-defined process. First,
+the system checks that the script is active and not currently
+running. It creates a log entry to track the execution. Then it
+fetches each target URL and parses the HTML response to extract
+product data. The extracted data is compared against existing
+products in the catalog using the matching algorithm. New offers
+are created for matched products, and low-confidence matches
+are flagged for review. Finally, the log is updated with statistics
+about how many records were collected and whether any errors
+occurred.
+
+The logging system provides visibility into what the scrapers
+are doing. Each execution creates a log entry showing when it
+started, when it ended, how many products were collected, and
+how many errors occurred. If errors happened, the log includes
+details about what went wrong. This information is essential
+for identifying problems with data sources and ensuring the
+scraping pipeline is working correctly.
+
+The frequency setting controls how often each script runs
+automatically. Some merchant websites update their prices
+frequently and need multiple daily runs, while others change
+slowly and might only need weekly checks. The schedule is
+configurable for each script, allowing the system to balance
+data freshness with server load and respect for partner websites.
+
+By the end of this sprint, the scraping system was fully
+functional. Scripts could be created, configured, and executed
+either on a schedule or manually. The matching system worked
+well enough to handle most products automatically, with human
+review catching the difficult cases. The API allowed external
+suppliers to connect and submit data. The data pipeline from
+merchant websites through to the user-facing catalog was
+complete and operational.
+
+Testing verified that scraping scripts ran successfully and
+collected data from target websites. The parsing logic handled
+different page structures correctly. New offers were created
+in the database with proper associations to products and merchants.
+The matching system correctly identified obvious matches while
+flagging uncertain ones for review. The API responded correctly
+to authenticated requests from external suppliers.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Scraping configuration panel / Execution logs}
+\end{center}
+caption{Scraping System Interface}
+\label{fig:scraping_interface}
+\end{figure}
+
+% ============================================================
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+% ============================================================
+
+The first phase of implementation completed three critical
+sprints that established the foundation for the entire platform.
+Sprint 1 created a secure authentication system capable of
+managing five distinct user types with role-based access control.
+Sprint 2 built the product catalog and search functionality
+that allows visitors to find and compare prices across merchants.
+Sprint 3 developed the automated scraping pipeline that keeps
+pricing data current without manual data entry.
+
+Together, these three sprints produced a working platform that
+could demonstrate core value to users. Visitors could browse
+products and see price comparisons. Authentication was in place
+to support personalized features in future sprints. The data
+collection infrastructure was established to continuously grow
+the product database.
+
+The technical decisions made during this phase positioned the
+project well for continued development. The role-based permission
+system would expand as more features were added. The search
+infrastructure would grow more sophisticated as requirements
+evolved. The scraping system would add more merchants and data
+sources. But the core architecture was solid and ready for the
+challenges of subsequent sprints.
+
+With these foundations in place, the project could proceed to
+Phase 2 implementation, which would focus on client-facing
+features like favorites, alerts, and wishlists, along with
+merchant and administrative functionality.

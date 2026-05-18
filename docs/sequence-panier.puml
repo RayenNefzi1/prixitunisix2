@@ -1,0 +1,37 @@
+@startuml
+actor Client
+participant CartController
+participant Cart
+participant CartItem
+participant Offer
+database Database
+
+Client -> CartController: POST /cart/add (offer_id, quantity)
+CartController -> Cart: getOrCreate(client_id)
+
+rectangle "Récupérer ou créer panier" {
+    alt Panier existe
+        Cart -> Database: find cart for client
+    else Panier n'existe pas
+        Cart -> Database: create(client_id)
+    end
+}
+
+CartController -> Offer: find(offer_id)
+
+alt Offer disponible
+    rectangle "Ajouter article au panier" {
+        CartController -> CartItem: create(cart_id, offer_id, quantity, price)
+        CartItem -> Database: save()
+    }
+    
+    rectangle "Recalculer total" {
+        CartController -> Cart: recalculateTotal()
+        Cart -> Database: update total
+    }
+    
+    CartController --> Client: "Produit ajouté"
+else Offer non disponible
+    CartController --> Client: "Offer non disponible", 400
+end
+@enduml

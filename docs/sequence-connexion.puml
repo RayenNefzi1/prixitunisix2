@@ -1,0 +1,29 @@
+@startuml
+actor User
+participant Controller
+participant AuthService
+participant UserModel
+database Database
+
+User -> Controller: POST /login (email, password)
+Controller -> AuthService: login(credentials)
+AuthService -> UserModel: where(email)
+UserModel -> Database: find user
+
+alt Utilisateur trouvé
+    AuthService -> AuthService: verifyPassword(password)
+    alt Mot de passe correct
+        rectangle "Générer JWT token" {
+            AuthService -> UserModel: createToken()
+            AuthService --> Controller: token
+        }
+        Controller --> User: JWT token
+    else Mot de passe incorrect
+        AuthService --> Controller: erreur
+        Controller --> User: "Mot de passe incorrect"
+    end
+else Utilisateur non trouvé
+    AuthService --> Controller: erreur
+    Controller --> User: "Email non trouvé"
+end
+@enduml

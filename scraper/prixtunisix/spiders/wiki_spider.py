@@ -22,6 +22,10 @@ class WikiSpider(scrapy.Spider):
     custom_settings = {
         "DOWNLOAD_DELAY": 1.5,
         "AUTOTHROTTLE_ENABLED": True,
+        "ROBOTSTXT_OBEY": False,
+        "DOWNLOADER_MIDDLEWARES": {
+            "prixtunisix.middlewares.cloudscraper_middleware.CloudscraperMiddleware": 543,
+        },
         "USER_AGENT": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -31,45 +35,57 @@ class WikiSpider(scrapy.Spider):
 
     def parse(self, response):
         """Parse home page to find all categories from the menu."""
-        # Grab all links from the header menu
-        links = response.css(".menu a::attr(href), #header a::attr(href), .cbp-hrmenu a::attr(href)").getall()
+        links = response.css(".category-item::attr(href)").getall()
         category_links = set()
         
         for link in links:
-            if "wiki.tn" in link and re.search(r"-[0-9]+\.html$", link):
+            if link.startswith("/"):
+                category_links.add(response.urljoin(link))
+            elif "wiki.tn" in link:
                 category_links.add(link)
 
-        self.logger.info(f"Found {len(category_links)} categories. Starting full crawl.")
+        self.logger.info(f"Found {len(category_links)} categories: {category_links}")
         
         for link in category_links:
             yield response.follow(link, self.parse_category)
 
     def parse_category(self, response):
         """Parse a category listing page — process products and follow pagination."""
-        articles = response.css("article.product-miniature, .product-container, .product-miniature")
-        self.logger.info(f"Found {len(articles)} products on {response.url}")
+        products = response.css(".brxe-duqjoq.brxe-block.product-card--grid, div.product-card--grid")
+        self.logger.info(f"Found {len(products)} products on {response.url}")
 
-        for article in articles:
-            url   = article.css(".product-title a::attr(href), h2 a::attr(href), h3 a::attr(href)").get("")
-            title = article.css(".product-title a::text, h2 a::text, h3 a::text").get("").strip()
+        for product in products:
+            url = product.css(".product-card__title a::attr(href)").get("")
+            title = product.css(".product-card__title a::text").get("").strip()
             if not url or not title:
                 continue
+            url = url.strip()
                 
-            raw_price = article.css("span.price::text").get("0").strip()
-            price = self._parse_price(raw_price)
+            price_elem = product.css("p.price span.woocommerce-Price-amount bdi::text").get("")
+            if price_elem:
+                price = self._parse_price(price_elem.replace("-", "").replace("TND", "").strip())
+            else:
+                price = self._parse_price("0")
+            
+            image_url = product.css("img::attr(data-lazy-src), img::attr(data-lazy-srcset)").get("")
+            if not image_url:
+                image_url = product.css("img::attr(src)").get("")
+            image_url = image_url.strip() if image_url else ""
+            
+            available = product.css(".brxe-shortcode-dispo::text, .stock-status-badge::text").get("")
+            is_available = "En Stock" in available if available else True
 
             yield OfferItem(
                 raw_title=title,
                 price=price,
                 merchant_url=url,
-                image_url=article.css("img::attr(src)").get(),
-                is_available="out-of-stock" not in article.css(".product-availability::text, .availability::text").get("").lower(),
+                image_url=image_url,
+                is_available=is_available,
                 merchant_website_id=WIKI_WEBSITE_ID,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
             )
 
-        # Pagination
-        next_page = response.css("a[rel='next']::attr(href), a.next::attr(href)").get()
+        next_page = response.css("a.next::attr(href), a.page-numbers::attr(href)").get()
         if next_page:
             yield response.follow(next_page, self.parse_category)
             

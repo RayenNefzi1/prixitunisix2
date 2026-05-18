@@ -14,11 +14,15 @@ interface Category {
 
 const TAB_CONFIG: Record<string, { icon: string; color: string }> = {
   'informatique':   { icon: '💻', color: 'hover:text-blue-600' },
+  'pc-portables':    { icon: '🖥️', color: 'hover:text-indigo-600' },
+  'smartphones':     { icon: '📱', color: 'hover:text-green-500' },
+  'tablettes':       { icon: '📲', color: 'hover:text-purple-500' },
+  'ecrans':          { icon: '🖥️', color: 'hover:text-cyan-500' },
+  'audio':           { icon: '🎧', color: 'hover:text-pink-500' },
+  'gaming':         { icon: '🎮', color: 'hover:text-red-500' },
+  'composants-pc':   { icon: '⚙️', color: 'hover:text-gray-600' },
+  'peripheriques':   { icon: '🖱️', color: 'hover:text-teal-500' },
   'electromenager': { icon: '🏠', color: 'hover:text-orange-500' },
-  'maison':         { icon: '🛋️', color: 'hover:text-green-600' },
-  'animalerie':     { icon: '🐾', color: 'hover:text-yellow-600' },
-  'beaute-sante':   { icon: '💆', color: 'hover:text-pink-500' },
-  'loisirs-sports': { icon: '🏋️', color: 'hover:text-red-500' },
 }
 
 const SUB_ICONS: Record<string, string> = {
@@ -63,8 +67,8 @@ export default function CategoryTabs({ categories }: { categories: Category[] })
   useEffect(() => () => { if (leaveTimer.current) clearTimeout(leaveTimer.current) }, [])
 
   return (
-    // position:relative so the absolute dropdown is relative to this bar, not the viewport
-    <div className="bg-white border-b border-gray-100 shadow-sm sticky top-[64px] z-40 relative">
+    // Fixed position - stays at top below main navbar (navbar is ~88px total height)
+    <div className="bg-white border-b border-gray-200 sticky top-16 left-0 right-0 z-40">
 
       {/* ── Tab strip ───────────────────────────────────────────────────── */}
       <div className="mx-auto max-w-7xl px-4">

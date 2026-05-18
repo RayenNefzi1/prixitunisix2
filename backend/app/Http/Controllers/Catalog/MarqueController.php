@@ -12,9 +12,9 @@ class MarqueController extends Controller
 {
     public function index(): JsonResponse
     {
-        $marques = Brand::withCount('products')
-            ->having('products_count', '>', 0)
-            ->orderByDesc('products_count')
+        $marques = Brand::whereHas('products')
+            ->withCount('products')
+            ->orderBy('name')
             ->get()
             ->map(fn($b) => [
                 'id'             => $b->id,
@@ -45,7 +45,12 @@ class MarqueController extends Controller
 
         $query = Product::with(['category', 'brand', 'offers' => fn($q) => $q->where('is_available', true)])
             ->where('brand_id', $brand->id)
-            ->whereHas('offers', fn($q) => $q->where('is_available', true));
+            ->whereHas('offers', function($q) {
+                $q->where('is_available', true)
+                  ->select('product_id')
+                  ->groupBy('product_id')
+                  ->havingRaw('COUNT(DISTINCT merchant_website_id) >= 2');
+            });
 
         if ($category) {
             $query->whereHas('category', fn($q) => $q->where('code', $category)->orWhere('slug', $category));

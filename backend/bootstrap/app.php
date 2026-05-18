@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\RoleMiddleware;
+use Illuminate\Http\Middleware\HandleCors;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
@@ -20,10 +21,15 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'role' => RoleMiddleware::class,
+            'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         ]);
 
         $middleware->api(prepend: [
-            EnsureFrontendRequestsAreStateful::class,
+            \Illuminate\Http\Middleware\HandleCors::class,
+        ]);
+        
+        $middleware->alias([
+            'cors' => \Illuminate\Http\Middleware\HandleCors::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
@@ -31,6 +37,7 @@ return Application::configure(basePath: dirname(__DIR__))
             if ($request->is('api/*')) {
                 return response()->json(['message' => 'Unauthenticated.'], 401);
             }
+            return response()->json(['message' => 'Unauthenticated.'], 401);
         });
 
         $exceptions->render(function (AuthorizationException $e, Request $request) {

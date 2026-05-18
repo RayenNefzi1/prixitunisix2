@@ -249,7 +249,7 @@ function ProductsInner() {
 
         {/* ── Sidebar ──────────────────────────────────────────────────── */}
         <aside className={`${showFilters ? 'block' : 'hidden'} md:block w-56 flex-shrink-0`}>
-          <div className="bg-white rounded-2xl shadow-sm ring-1 ring-gray-100 p-5 sticky top-[112px] max-h-[calc(100vh-130px)] overflow-y-auto">
+          <div className="bg-white rounded-2xl shadow-sm ring-1 ring-gray-100 p-5 sticky top-40 max-h-[calc(100vh-140px)] overflow-y-auto z-35">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-gray-800 flex items-center gap-2">
                 <SlidersHorizontal className="w-4 h-4 text-brand-500" />

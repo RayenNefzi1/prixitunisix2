@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Client;
 use App\Models\User;
+use App\Services\WhatsAppService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,6 +23,15 @@ class AuthController extends Controller
             'password' => ['required', 'confirmed', Password::min(8)],
         ]);
 
+        $emailDomain = strtolower(explode('@', $data['email'])[1] ?? '');
+
+        $forbiddenClientDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'live.com', 'msn.com', 'aol.com', 'icloud.com'];
+        if (in_array($emailDomain, $forbiddenClientDomains)) {
+            throw ValidationException::withMessages([
+                'email' => ['Pour les clients, veuillez utiliser la connexion par numéro de téléphone.'],
+            ]);
+        }
+
         $user = User::create([
             'name' => $data['name'],
             'prename' => $data['prename'],
@@ -34,6 +44,15 @@ class AuthController extends Controller
         Client::create(['user_id' => $user->id]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
+
+        // Send WhatsApp welcome message (test mode)
+        try {
+            $wa = new WhatsAppService();
+            $wa->send('+216', "Bienvenue sur PrixTunisix! {$data['name']} {$data['prename']} inscription réussie.");
+        } catch (\Exception $e) {
+            // Log but don't fail the request
+            \Illuminate\Support\Facades\Log::warning('WhatsApp notification failed: ' . $e->getMessage());
+        }
 
         return response()->json([
             'user' => $this->userResource($user),
@@ -50,13 +69,27 @@ class AuthController extends Controller
 
         $user = User::where('email', $data['email'])->first();
 
-        if (! $user || ! Hash::check($data['password'], $user->password)) {
+        // Clients must use phone OTP
+        if ($user && $user->role === 'client') {
+            throw ValidationException::withMessages([
+                'email' => ['Pour les clients, veuillez utiliser la connexion par numéro de téléphone.'],
+            ]);
+        }
+
+        // Admin, Employee, Merchant, Fournisseur can use email/password
+        if (! $user || ! in_array($user->role, ['admin', 'employee', 'merchant', 'fournisseur'])) {
+            throw ValidationException::withMessages([
+                'email' => ['Identifiants incorrects.'],
+            ]);
+        }
+
+        if (! Hash::check($data['password'], $user->password)) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
         }
 
-        // Revoke old tokens for this device (optional: keep all for multi-device)
+        // Revoke old tokens for this device
         $user->tokens()->where('name', 'auth_token')->delete();
         $token = $user->createToken('auth_token')->plainTextToken;
 

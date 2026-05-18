@@ -1,0 +1,387 @@
+\chapter*{Chapter 4}
+\markboth{Chapter 4}{4 Implementation - Phase 2: Sprints 4-6}
+\addcontentsline{toc}{chapter}{4 Implementation - Phase 2: Sprints 4-6}
+
+\textsc{\textbf{\Huge Implementation - Phase 2}} \\ \\
+
+\stepcounter{chapter}
+
+% ============================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+This chapter presents the second phase of implementation work,
+covering Sprints 4 through 6. While the first phase established
+the core infrastructure for authentication, product catalog, and
+data collection, this phase focused on building features that
+directly serve the end users. The primary focus was on client
+features like favorites and price alerts, merchant management
+capabilities for offering products, and administrative tools
+for overseeing the platform. Each sprint added significant
+functionality that transformed the platform from a basic price
+comparison tool into a fully-featured service with personalized
+user experiences.
+
+The work in these three sprints addressed the requirements
+identified during the analysis phase and built upon the foundation
+created in the first three sprints. The authentication system
+from Sprint 1 was used to protect user-specific features. The
+product catalog from Sprint 2 became the basis for personalization.
+The scraping system from Sprint 3 fed the data that made price
+alerts meaningful. This integration of previous work demonstrated
+the value of building a solid foundation before adding layers
+of functionality.
+
+% ============================================================
+\section*{Sprint 4: Client Personalization Features}
+\addcontentsline{toc}{section}{Sprint 4: Client Personalization Features}
+
+\subsection*{Sprint Overview}
+
+Sprint 4 concentrated on features that make the platform useful
+for returning clients. While visitors could search and compare
+prices, authenticated clients gained the ability to save their
+preferences, track products they were interested in, and receive
+notifications when prices changed. These features increased user
+engagement and provided additional value that encouraged users
+to create accounts.
+
+The three main client features implemented were favorites, price
+alerts, and wishlists. Each served a different purpose in helping
+clients manage their shopping experience. Favorites provided a
+quick way to save interesting products for later reference. Price
+alerts automated the process of monitoring price changes and
+notifying users when products reached their target prices.
+Wishlists allowed clients to organize products into custom
+collections, useful for comparing multiple items or planning
+purchases.
+
+A critical requirement for these features was that they only
+be available to authenticated clients. Visitors could browse and
+compare prices, but saving favorites or creating alerts required
+logging in. This distinction was enforced through the role-based
+middleware already in place from Sprint 1, with the client role
+being required for access to these endpoints.
+
+The technology approach leveraged the existing database models
+and Laravel relationships to implement these features efficiently.
+Rather than creating entirely new data structures, the features
+built upon the relationships already defined between products,
+offers, and users. This approach maintained consistency across
+the platform and reduced the complexity of the implementation.
+
+Favorites worked as a simple bookmark system where clients could
+mark any product as interesting with a single click. The system
+stored the association between the client and the product,
+allowing them to view all their favorites in one place. This
+was particularly useful for clients who were comparing options
+across multiple visits, as they could quickly return to products
+they had previously identified as interesting.
+
+The favorites feature utilized a many-to-many relationship
+between clients and products. When a client added a product to
+their favorites, the system created an entry in the favorites
+table linking the two. This design allowed a client to have
+any number of favorites and a product to be favorited by many
+clients. The interface displayed the favorite status clearly,
+allowing clients to easily add or remove items from their list.
+
+Price alerts represented a more sophisticated feature that
+combined user preferences with ongoing price monitoring. When a
+client created an alert for a product, they specified a target
+price they considered a good deal. The system would then monitor
+the product's offers and notify the client when any offer fell
+below their target price.
+
+The alert system required background processing to check prices
+regularly and trigger notifications. This was implemented using
+scheduled tasks that ran periodically to evaluate active alerts.
+When a price drop was detected, the system sent a notification
+to the client through their preferred channel, typically SMS
+since phone numbers were already verified during registration.
+
+Wishlists provided organizational functionality for clients who
+wanted to group products together. Unlike favorites which was a
+single flat list, wishlists allowed clients to create multiple
+named collections. This was useful for different purposes such
+as organizing gifts for different occasions, comparing products
+in a specific category, or tracking items across different
+shopping trips.
+
+The wishlist system included both the list containers and the
+items within them. Clients could create any number of wishlists
+with custom names. Each wishlist could contain multiple products.
+The system also allowed clients to share their wishlists with
+others through a unique link, useful for gift suggestions or
+collaborative shopping.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3cm}|m{6cm}|}
+\hline
+\textbf{Feature} & \textbf{Description} \\ \hline
+Favorites & One-click saving of products to a personal list \\ \hline
+Price Alerts & Automated monitoring with SMS notification on price drops \\ \hline
+Wishlists & Custom collections of products for organization and sharing \\ \hline
+\end{tabular}
+\caption{Client Personalization Features}
+\label{tab:client_features}
+\end{center}
+\end{table}
+
+The controller layer for these features was organized around the
+client domain. A FavoriteController handled adding and removing
+favorites, retrieving the list of favorites, and checking whether
+a specific product was already favorited. A PriceAlertController
+managed the creation, modification, and deletion of alerts,
+along with listing active alerts. A WishlistController handled
+creating wishlists, adding and removing products from them, and
+retrieving the contents.
+
+Testing verified that all three features worked correctly.
+Clients could add and remove favorites without errors. Price
+alerts were created correctly and notifications were sent when
+conditions were met. Wishlists could be created, populated, and
+retrieved with all products properly associated. The access
+controls worked as expected, preventing visitors from accessing
+any of these features without authentication.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Favorites page / Price alerts / Wishlists}
+\end{center}
+\caption{Client Personalization Features}
+\label{fig:client_features_interface}
+\end{figure}
+
+% ============================================================
+\section*{Sprint 5: Merchant Management Features}
+\addcontentsline{toc}{section}{Sprint 5: Merchant Management Features}
+
+\subsection*{Sprint Overview}
+
+Sprint 5 shifted focus to the merchant side of the platform.
+While Sprint 4 served clients who wanted to find the best
+prices, this sprint served the businesses that offered those
+prices. Merchants needed tools to manage their product offerings,
+subscribe to platform plans that provided access to different
+feature levels, and track the performance of their listings.
+
+The core merchant functionality centered on offer management.
+Merchants could add new offers for products in the catalog,
+update prices and availability for existing offers, and remove
+offers that were no longer valid. This was distinct from the
+scraping system in Sprint 3, which automatically collected offers
+from external websites. Merchant offers were created manually
+by the merchants themselves through their dashboard.
+
+Subscription management provided the business model for the
+platform. Merchants could subscribe to different plans that
+granted access to various features. Basic plans might allow a
+limited number of offers, while premium plans offered unlimited
+listings with additional visibility features. The subscription
+system tracked which plan each merchant was on and when their
+current period expired.
+
+The offer management system required careful integration with
+the existing product catalog. Rather than creating new products,
+merchants would add offers to existing products in the catalog.
+This maintained the integrity of the canonical product data while
+allowing merchants to contribute their pricing information.
+
+When a merchant added a new offer, the system first checked
+whether the referenced product existed in the catalog. If it
+did, the offer was created with a link to that product. If the
+product did not exist, the offer was held in a pending state
+for administrator review. This approach prevented duplicate
+products from proliferating while allowing legitimate new
+products to be added through the merchant workflow.
+
+The offer data included the price, URL to the product on the
+merchant's website, availability status, and optional metadata
+like stock quantity. The price was the critical field that
+contributed to the price comparison functionality. The URL
+enabled the redirect feature that sent clients to merchant
+websites to complete purchases.
+
+Subscription plans were defined with different feature sets and
+pricing. The system tracked which plan each merchant had active,
+along with the start and end dates of their current subscription
+period. When a subscription was nearing expiration, the system
+could send notifications to encourage renewal. The plan features
+were enforced by checking the subscription status before allowing
+certain actions like adding new offers.
+
+Performance statistics gave merchants insight into how their
+offers were performing. The system tracked metrics like how
+many times each offer had been displayed in search results,
+how many clicks had resulted in redirects to the merchant website,
+and how many times the offer had been selected as the lowest
+price. These metrics helped merchants understand the value
+they were receiving from the platform.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3cm}|m{6cm}|}
+\hline
+\textbf{Component} & \textbf{Function} \\ \hline
+Offer Management & Add, update, and remove product offers \\ \hline
+Subscription System & Plan-based access control and billing tracking \\ \hline
+Performance Metrics & Click and view statistics for merchant offers \\ \hline
+Merchant Profile & Business information and verification status \\ \hline
+\end{tabular}
+\caption{Merchant Feature Components}
+\label{tab:merchant_components}
+\end{center}
+\end{table}
+
+The merchant controller layer provided the API endpoints for
+all merchant functionality. Endpoints existed for managing
+offers, viewing and updating subscriptions, and retrieving
+performance reports. The role-based access control ensured
+that only users with the merchant role could access these
+features, and merchants could only access their own data.
+
+Testing confirmed that merchants could successfully create and
+manage offers. The subscription system correctly enforced plan
+limits. Performance metrics were accurately tracked and displayed.
+The access controls properly restricted functionality to
+authenticated merchants only.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Merchant dashboard / Offer management / Subscriptions}
+\end{center}
+\caption{Merchant Interface}
+\label{fig:merchant_interface}
+\end{figure}
+
+% ============================================================
+\section*{Sprint 6: Administrative Features}
+\addcontentsline{toc}{section}{Sprint 6: Administrative Features}
+
+\subsection*{Sprint Overview}
+
+Sprint 6 completed the feature implementation with a focus on
+administrative capabilities. While previous sprints built features
+for clients and merchants, this sprint provided the tools needed
+to manage and oversee the entire platform. Administrators needed
+to validate products, manage users, configure the system, and
+monitor overall platform health.
+
+Product validation addressed a quality control need that emerged
+from the scraping system in Sprint 3. When products were scraped
+from merchant websites, they entered the system in a pending
+state. Administrators reviewed these pending products and decided
+whether to publish them to the public catalog. This human review
+ensured that products met quality standards before becoming
+visible to users.
+
+User management gave administrators complete control over user
+accounts. They could view all users in the system, update roles
+to change user types, and deactivate accounts that violated
+terms of service. This functionality was essential for maintaining
+the integrity of the user community and handling problematic
+accounts.
+
+The platform dashboard provided a high-level view of system
+health. Administrators could see metrics like total users,
+active products, number of merchants, and scraping health.
+This visibility helped identify problems quickly and track
+the growth of the platform over time.
+
+Category and brand management allowed administrators to maintain
+the taxonomy that organized the product catalog. They could add
+new categories, modify existing ones, and set parent-child
+relationships for hierarchical organization. Similarly, brands
+could be added, merged, or removed as the product catalog evolved.
+
+The product validation workflow followed a clear sequence.
+Scraped products first entered a pending queue. Administrators
+could review each pending product, examining the name, description,
+category, brand, and other attributes. They could then approve
+the product to publish it, reject it to remove it from the queue,
+or request changes if the data needed correction before approval.
+
+The dashboard aggregated metrics from across the platform.
+User counts showed how many clients, merchants, and other users
+were registered. Product counts displayed how many products and
+offers existed in the catalog. Scraping statistics showed how
+many scripts were running and their recent success rates. These
+metrics updated in near real-time to give administrators current
+information.
+
+The category management interface allowed hierarchical organization.
+Categories could be created with parent categories to form trees.
+For example, Electronics could contain Computers, which could
+contain Laptops. This structure was used throughout the platform
+for browsing and filtering products. The brand management was
+simpler, maintaining a flat list of manufacturer names that could
+be assigned to products.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3.5cm}|m{5.5cm}|}
+\hline
+\textbf{Admin Function} & \textbf{Description} \\ \hline
+Product Validation & Review and approve scraped products before publication \\ \hline
+User Management & View, modify roles, and deactivate user accounts \\ \hline
+Dashboard & Platform-wide metrics and health monitoring \\ \hline
+Category Management & Hierarchical taxonomy for product organization \\ \hline
+Brand Management & Manufacturer listing for product attribution \\ \hline
+Scraping Oversight & Monitor and configure data collection scripts \\ \hline
+\end{tabular}
+\caption{Administrative Features Summary}
+\label{tab:admin_features}
+\end{center}
+\end{table}
+
+The administrative controller provided endpoints for all these
+functions. Product validation endpoints allowed reviewing pending
+items and making approval decisions. User management endpoints
+supported searching, filtering, and modifying user records.
+Dashboard endpoints aggregated and returned the various metrics.
+Category and brand endpoints provided full CRUD operations.
+
+Testing verified that administrators could access all their
+designated features. Product validation workflow functioned
+correctly from pending through approval or rejection. User
+management operations worked including role changes and
+deactivation. Dashboard metrics displayed accurate data. Category
+and brand management maintained proper data integrity.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Admin dashboard / Product validation / User management}
+\end{center}
+\caption{Admin Interface}
+\label{fig:admin_interface}
+\end{figure}
+
+% ============================================================
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+% ============================================================
+
+The second phase of implementation expanded the platform from
+a basic comparison tool into a full-featured service. Sprint 4
+gave clients personalized experiences through favorites, price
+alerts, and wishlists. Sprint 5 empowered merchants to manage
+their offerings through dedicated tools for products, subscriptions,
+and analytics. Sprint 6 provided the administrative oversight
+needed to maintain quality and platform health.
+
+These three sprints built directly on the foundation established
+in the first phase. The authentication system protected user-specific
+features. The product catalog provided the data that personalization
+operated on. The scraping system fed the products that merchants
+and administrators managed. This integration demonstrated how
+each phase contributed to the overall platform.
+
+The platform was now functionally complete with all major
+features implemented. Users could search and compare prices as
+visitors, or create accounts to access personalized features.
+Merchants could manage their product offerings and track performance.
+Administrators could oversee the entire system. The remaining
+work would focus on refinement, optimization, and preparing
+for production deployment.

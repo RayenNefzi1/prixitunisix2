@@ -8,6 +8,7 @@ use App\Models\MerchantClick;
 use App\Models\ProductView;
 use App\Models\Product;
 use App\Models\Offer;
+use App\Models\FournisseurSubscription;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -41,7 +42,6 @@ class FournisseurController extends Controller
         ->whereHas('offers', function ($query) use ($fournisseur) {
             $query->where('merchant_website_id', $fournisseur->merchant_website_id);
         })
-        ->limit(50)
         ->get();
 
         $clickStats = MerchantClick::where('fournisseur_id', $fournisseur->id)
@@ -94,6 +94,9 @@ class FournisseurController extends Controller
                 'views_this_month' => $viewsThisMonth,
                 'total_products' => $fournisseurProducts->count(),
             ],
+            'subscription' => $fournisseur->subscription,
+            'can_scrape' => $fournisseur->canBeScraped(),
+            'appears_on_website' => $fournisseur->appearsOnWebsite(),
             'click_stats' => $clickStats,
             'top_products' => $topProducts,
             'products' => $fournisseurProducts,
@@ -108,11 +111,32 @@ class FournisseurController extends Controller
             return response()->json(['message' => 'Fournisseur non trouvé.'], 404);
         }
 
-        $products = Product::whereHas('offers', function ($query) use ($fournisseur) {
-            $query->where('merchant_website_id', $fournisseur->merchant_website_id);
-        })->with(['offers' => function ($query) use ($fournisseur) {
-            $query->where('merchant_website_id', $fournisseur->merchant_website_id);
-        }, 'category', 'brand'])->get();
+        $query = Product::query();
+
+        // If fournisseur has a merchant_website_id, filter by it
+        // Otherwise show all products (for demo purposes)
+        if ($fournisseur->merchant_website_id) {
+            $query->whereHas('offers', function ($q) use ($fournisseur) {
+                $q->where('merchant_website_id', $fournisseur->merchant_website_id);
+            })->with(['offers' => function ($q) use ($fournisseur) {
+                $q->where('merchant_website_id', $fournisseur->merchant_website_id);
+            }, 'category', 'brand']);
+        } else {
+            // No website selected - show all products with any offers
+            $query->whereHas('offers')
+                ->with(['offers' => function ($q) {
+                    $q->where('is_available', true)->orderBy('price', 'asc');
+                }, 'category', 'brand']);
+        }
+
+        $products = $query->get();
+
+        // Transform to add computed fields
+        $products = $products->map(function ($product) {
+            $product->lowest_price = $product->offers->min('price');
+            $product->offer_count = $product->offers->count();
+            return $product;
+        });
 
         return response()->json(['products' => $products]);
     }
@@ -281,6 +305,12 @@ class FournisseurController extends Controller
 
     public function register(Request $request): JsonResponse
     {
+        $user = $request->user();
+
+        if ($user->fournisseur) {
+            return response()->json(['message' => 'Vous avez déjà un espace fournisseur.'], 409);
+        }
+
         $validator = Validator::make($request->all(), [
             'company_name'        => 'required|string|max:255',
             'contact_email'       => 'required|email',
@@ -292,12 +322,6 @@ class FournisseurController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
-        }
-
-        $user = $request->user();
-
-        if ($user->fournisseur) {
-            return response()->json(['message' => 'Vous avez déjà un espace fournisseur.'], 409);
         }
 
         $fournisseur = Fournisseur::create([
@@ -316,5 +340,85 @@ class FournisseurController extends Controller
             'message'     => 'Espace fournisseur créé avec succès.',
             'fournisseur' => $fournisseur->load('merchantWebsite'),
         ], 201);
+    }
+
+    public function getSubscriptionPlans(): JsonResponse
+    {
+        $plans = FournisseurSubscription::getPlanFeatures();
+        
+        return response()->json(['plans' => $plans]);
+    }
+
+    public function getSubscription(Request $request): JsonResponse
+    {
+        $fournisseur = $request->user()->fournisseur;
+
+        if (!$fournisseur) {
+            return response()->json(['message' => 'Fournisseur non trouvé.'], 404);
+        }
+
+        $subscription = $fournisseur->subscription;
+
+        return response()->json([
+            'subscription' => $subscription,
+            'can_scrape' => $fournisseur->canBeScraped(),
+            'appears_on_website' => $fournisseur->appearsOnWebsite(),
+        ]);
+    }
+
+    public function subscribe(Request $request): JsonResponse
+    {
+        $fournisseur = $request->user()->fournisseur;
+
+        if (!$fournisseur) {
+            return response()->json(['message' => 'Fournisseur non trouvé.'], 404);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'plan' => 'required|string|in:basic,pro,max,premium_manual',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $plans = FournisseurSubscription::getPlanFeatures();
+        $planData = $plans[$request->plan];
+
+        $subscription = FournisseurSubscription::create([
+            'fournisseur_id' => $fournisseur->id,
+            'plan' => $request->plan,
+            'price' => $planData['price'],
+            'start_date' => now(),
+            'end_date' => now()->addMonth(),
+            'status' => 'active',
+        ]);
+
+        return response()->json([
+            'message' => 'Abonnement activé avec succès.',
+            'subscription' => $subscription,
+        ], 201);
+    }
+
+    public function cancelSubscription(Request $request): JsonResponse
+    {
+        $fournisseur = $request->user()->fournisseur;
+
+        if (!$fournisseur) {
+            return response()->json(['message' => 'Fournisseur non trouvé.'], 404);
+        }
+
+        $subscription = $fournisseur->subscription;
+
+        if (!$subscription) {
+            return response()->json(['message' => 'Aucun abonnement trouvé.'], 404);
+        }
+
+        $subscription->update(['status' => 'cancelled']);
+
+        return response()->json([
+            'message' => 'Abonnement annulé.',
+            'subscription' => $subscription->fresh(),
+        ]);
     }
 }

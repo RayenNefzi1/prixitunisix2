@@ -5,6 +5,11 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Merchant;
 use App\Models\ProductMatch;
+use App\Models\Product;
+use App\Models\Offer;
+use App\Models\PriceAlert;
+use App\Models\Fournisseur;
+use App\Models\FournisseurSubscription;
 use App\Models\RedirectClick;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -13,6 +18,36 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function dashboard(): JsonResponse
+    {
+        $stats = [
+            'total_users' => User::count(),
+            'total_fournisseurs' => Fournisseur::count(),
+            'total_products' => Product::count(),
+            'total_offers' => Offer::count(),
+            'active_alerts' => PriceAlert::whereNull('triggered_at')->count(),
+            'total_categories' => \App\Models\Category::count(),
+            'total_brands' => \App\Models\Brand::count(),
+            'total_merchants' => \App\Models\Merchant::count(),
+        ];
+
+        return response()->json($stats);
+    }
+
+    public function fournisseurs(Request $request): JsonResponse
+    {
+        $fournisseurs = Fournisseur::with(['merchantWebsite', 'subscription'])
+            ->orderByDesc('id')
+            ->paginate(20);
+
+        return response()->json($fournisseurs);
+    }
+
+    public function toggleFournisseur(Request $request, Fournisseur $fournisseur): JsonResponse
+    {
+        $fournisseur->update(['active' => !$fournisseur->active]);
+        return response()->json($fournisseur);
+    }
     /** GET /admin/users — list all users */
     public function users(Request $request): JsonResponse
     {
@@ -108,5 +143,35 @@ class AdminController extends Controller
             ->get();
 
         return response()->json($clicks);
+    }
+
+    public function subscriptions(Request $request): JsonResponse
+    {
+        $subscriptions = \App\Models\FournisseurSubscription::with('fournisseur')
+            ->orderByDesc('id')
+            ->paginate(20);
+
+        return response()->json($subscriptions);
+    }
+
+    public function alerts(Request $request): JsonResponse
+    {
+        $query = \App\Models\PriceAlert::with(['product', 'client.user', 'client']);
+        
+        if ($request->status === 'active') {
+            $query->whereNull('triggered_at');
+        } elseif ($request->status === 'triggered') {
+            $query->whereNotNull('triggered_at');
+        }
+        
+        $alerts = $query->orderByDesc('id')->paginate(20);
+        
+        return response()->json($alerts);
+    }
+
+    public function deleteAlert(\App\Models\PriceAlert $priceAlert): JsonResponse
+    {
+        $priceAlert->delete();
+        return response()->json(null, 204);
     }
 }

@@ -133,18 +133,9 @@ class DbPipeline:
         )
 
         # ── Step 4: Queue offers with no reference for admin review ────
-        if not matched_product_id:
-            self.cur.execute(
-                "SELECT id FROM product_matches WHERE offer_id = %s AND status = 'pending' LIMIT 1",
-                (offer_id,),
-            )
-            if not self.cur.fetchone():
-                self.cur.execute(
-                    """INSERT INTO product_matches
-                        (offer_id, product_id, confidence_score, status, created_at, updated_at)
-                       VALUES (%s, NULL, 0.0, 'pending', NOW(), NOW())""",
-                    (offer_id,),
-                )
+        # NOTE: product_matches.product_id has NOT NULL constraint, so we skip
+        # the insert when there's no matched_product_id. The offer is saved
+        # but not linked to any product - manual matching required later.
 
         self.conn.commit()
 

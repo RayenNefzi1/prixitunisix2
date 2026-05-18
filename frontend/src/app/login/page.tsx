@@ -83,8 +83,8 @@ export default function LoginPage() {
     setLoading(true)
     try {
       const user = await verifyLoginOtp(formattedPhone, code)
-      if (user.role === 'admin' || user.role === 'employee') router.push('/admin')
-      else router.push('/products')
+      // Force hard reload immediately - no delay, no flash of old state
+      window.location.replace('/')
     } catch (err: unknown) {
       const e = err as { response?: { data?: { message?: string; errors?: Record<string, string[]> } } }
       const msgs = e.response?.data?.errors

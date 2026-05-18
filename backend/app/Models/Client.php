@@ -18,11 +18,6 @@ class Client extends Model
         return $this->hasMany(Wishlist::class);
     }
 
-    public function cart()
-    {
-        return $this->hasOne(Cart::class);
-    }
-
     public function priceAlerts()
     {
         return $this->hasMany(PriceAlert::class);
@@ -36,6 +31,19 @@ class Client extends Model
     public function favoriteProducts()
     {
         return $this->belongsToMany(Product::class, 'favorites', 'client_id', 'product_id')
+            ->withPivot('created_at');
+    }
+
+    public function productViews()
+    {
+        return $this->belongsToMany(Product::class, 'client_product_views', 'client_id', 'product_id')
+            ->withPivot('created_at')
+            ->orderByPivot('created_at', 'desc');
+    }
+
+    public function viewedProducts()
+    {
+        return $this->belongsToMany(Product::class, 'client_product_views', 'client_id', 'product_id')
             ->withPivot('created_at');
     }
 }

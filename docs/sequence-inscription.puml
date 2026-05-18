@@ -1,0 +1,36 @@
+@startuml
+actor Client
+participant Controller
+participant AuthService
+participant PhoneOtp
+participant User
+participant ClientModel
+database Database
+
+Client -> Controller: POST /register (email, phone, password)
+Controller -> AuthService: register(data)
+
+rectangle "Générer & envoyer OTP" {
+    AuthService -> PhoneOtp: generateCode(phone)
+    PhoneOtp -> Database: save(phone, code, expires_at)
+}
+AuthService --> Client: "Code envoyé"
+
+Client -> Controller: POST /verify-phone (phone, code)
+Controller -> AuthService: verifyCode(phone, code)
+
+rectangle "Vérifier code OTP" {
+    AuthService -> PhoneOtp: validate(code)
+    PhoneOtp --> AuthService: code valide
+}
+
+rectangle "Créer compte utilisateur" {
+    AuthService -> User: create(email, password, phone, role='client')
+    User -> Database: save()
+    
+    AuthService -> ClientModel: create(user_id)
+    ClientModel -> Database: save()
+}
+
+AuthService --> Client: "Inscription réussie"
+@enduml

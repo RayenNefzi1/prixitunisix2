@@ -1,0 +1,37 @@
+@startuml
+actor Fournisseur
+participant ScraperController
+participant ScrapingScript
+participant ScrapingLog
+participant ExternalAPI
+database Database
+
+Fournisseur -> ScraperController: POST /scrape/run (script_id)
+ScraperController -> ScrapingScript: find(script_id)
+
+alt Script actif
+    rectangle "Démarrer scraping" {
+        ScraperController -> ScrapingLog: create(script_id, started_at)
+        ScrapingLog -> Database: save()
+    }
+    
+    rectangle "Parser les produits" {
+        loop Pour chaque page
+            ScraperController -> ExternalAPI: fetch(target_url)
+            ExternalAPI --> ScraperController: html content
+            
+            ScraperController -> ScraperController: parseProducts(html)
+            
+            ScraperController -> ScrapingScript: update(last_run)
+        end
+    }
+    
+    rectangle "Terminer et sauvegarder" {
+        ScrapingLog -> Database: update(records_collected, ended_at)
+    }
+    
+    ScraperController --> Fournisseur: "Scrape terminé"
+else Script inactif
+    ScraperController --> Fournisseur: "Script inactif", 400
+end
+@enduml

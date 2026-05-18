@@ -1,0 +1,17 @@
+@startuml
+title Séquence Recherche Produits
+actor Visiteur
+participant "Interface" as ui
+participant ":ProductController" as ctrl
+participant ":Product" as product
+database "Database" as db
+
+Visiteur->ui: Rechercher produit
+ui->ctrl: GET /products
+ctrl->product: search()
+product->db: query produits
+db-->product: produits
+product-->ctrl: résultats
+ctrl->ui: résultats
+ui-->Visiteur: Liste produits
+@enduml

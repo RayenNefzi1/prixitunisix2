@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import api from '@/lib/api'
-import { Briefcase, BarChart2, Package, Key, ExternalLink, TrendingUp, Eye, MousePointer } from 'lucide-react'
+import { Briefcase, BarChart2, Package, Key, ExternalLink, TrendingUp, Eye, MousePointer, CreditCard, AlertCircle } from 'lucide-react'
 
 interface Stats {
   total_clicks: number; clicks_this_month: number; clicks_today: number
@@ -15,25 +15,38 @@ interface Fournisseur {
   active: boolean; merchant_url: string | null; logo_url: string | null
   merchant_website: { id: number; name: string } | null
 }
+interface Subscription {
+  id: number; plan: string; price: number; start_date: string; end_date: string; status: string
+}
 
 export default function FournisseurPage() {
   const router = useRouter()
   const [fournisseur, setFournisseur] = useState<Fournisseur | null>(null)
   const [stats, setStats]             = useState<Stats | null>(null)
+  const [subscription, setSubscription] = useState<Subscription | null>(null)
+  const [appearsOnWebsite, setAppearsOnWebsite] = useState(false)
   const [loading, setLoading]         = useState(true)
   const [error, setError]             = useState<string | null>(null)
   const [apiKeyRevealed, setApiKeyRevealed] = useState(false)
   const [generatingKey, setGeneratingKey]  = useState(false)
 
   useEffect(() => {
+    const token = localStorage.getItem('fournisseur_token')
+    if (!token) {
+      router.push('/fournisseur/login')
+      return
+    }
+    
     api.get('/fournisseur/dashboard')
       .then(res => {
         setFournisseur(res.data.fournisseur)
         setStats(res.data.stats)
+        setSubscription(res.data.subscription)
+        setAppearsOnWebsite(res.data.appears_on_website)
       })
       .catch(err => {
         if (err.response?.status === 401) {
-          router.push('/login?redirect=/fournisseur')
+          router.push('/fournisseur/login')
         } else if (err.response?.status === 404) {
           setError('no_fournisseur')
         } else {
@@ -95,6 +108,35 @@ export default function FournisseurPage() {
         </div>
       </div>
 
+      {/* Subscription Status */}
+      {!subscription || subscription.status !== 'active' ? (
+        <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-xl flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-orange-600 mt-0.5" />
+          <div className="flex-1">
+            <p className="font-medium text-orange-800">Aucun abonnement actif</p>
+            <p className="text-sm text-orange-700 mt-1">Vous devez choisir un abonnement pour apparaître sur le site et être scrapé.</p>
+          </div>
+          <Link href="/fournisseur/subscription" className="px-4 py-2 bg-orange-600 text-white rounded-lg text-sm font-medium hover:bg-orange-700 whitespace-nowrap">
+            Souscrire
+          </Link>
+        </div>
+      ) : (
+        <div className="mb-6 p-4 bg-white border border-gray-200 rounded-xl flex items-center gap-4">
+          <div className={`p-2 rounded-lg ${appearsOnWebsite ? 'bg-green-100' : 'bg-gray-100'}`}>
+            <CreditCard className={`w-5 h-5 ${appearsOnWebsite ? 'text-green-600' : 'text-gray-600'}`} />
+          </div>
+          <div className="flex-1">
+            <p className="font-medium text-gray-900">Abonnement: {subscription.plan === 'basic' ? 'Basic' : subscription.plan === 'pro' ? 'Go Pro' : subscription.plan === 'max' ? 'Max' : 'Premium Manuel'}</p>
+            <p className="text-sm text-gray-500">
+              {appearsOnWebsite ? '✓ Apparaît sur le site' : '✗ N\'apparaît pas sur le site'}
+            </p>
+          </div>
+          <Link href="/fournisseur/subscription" className="text-sm text-brand-600 hover:underline">
+            Gérer
+          </Link>
+        </div>
+      )}
+
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
         {[
@@ -146,6 +188,9 @@ export default function FournisseurPage() {
         </Link>
         <Link href="/fournisseur/links" className="flex items-center gap-2 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-200 transition">
           <ExternalLink className="w-4 h-4" /> Liens affiliés
+        </Link>
+        <Link href="/fournisseur/subscription" className="flex items-center gap-2 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-200 transition">
+          <CreditCard className="w-4 h-4" /> Abonnement
         </Link>
         <Link href="/fournisseur/profile" className="flex items-center gap-2 px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl text-sm font-medium hover:bg-gray-200 transition">
           <Briefcase className="w-4 h-4" /> Modifier profil

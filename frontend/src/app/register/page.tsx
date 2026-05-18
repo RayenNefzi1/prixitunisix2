@@ -76,7 +76,8 @@ export default function RegisterPage() {
     setLoading(true)
     try {
       await verifyRegisterOtp(formattedPhone, code)
-      router.push('/profile-setup')
+      // Force hard reload immediately - no delay, no flash of old state
+      window.location.replace('/')
     } catch (err: unknown) {
       const e = err as { response?: { data?: { message?: string; errors?: Record<string, string[]> } } }
       const msgs = e.response?.data?.errors

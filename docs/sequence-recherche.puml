@@ -1,0 +1,37 @@
+@startuml
+actor Visiteur
+participant ProductController
+participant Product
+participant Category
+participant Offer
+database Database
+
+Visiteur -> ProductController: GET /products (search, filters)
+ProductController -> Product: search(query, filters)
+
+alt Recherche par mot clé
+    rectangle "Recherche textuelle" {
+        Product -> Database: where('name', 'LIKE', %query%)
+    }
+else Filtre par catégorie
+    rectangle "Filtrage par catégorie" {
+        Product -> Category: find(id)
+        Product -> Database: where('category_id', category.id)
+    }
+else Filtre par marque
+    rectangle "Filtrage par marque" {
+        Product -> Database: where('brand_id', brand_id)
+    }
+end
+
+rectangle "Récupérer offres et prix" {
+    Product -> Database: get products with offers
+    
+    loop Pour chaque produit
+        Product -> Offer: lowestPrice()
+        Offer -> Database: min(price) where is_available = true
+    end
+}
+
+ProductController --> Visiteur: liste produits avec prix min
+@enduml

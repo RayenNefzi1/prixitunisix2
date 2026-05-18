@@ -29,7 +29,7 @@ export default function ProfileSetupPage() {
         prename: form.prename.trim() || undefined,
         email:   form.email.trim()   || undefined,
       })
-      router.push('/products')
+      router.push('/')
     } catch (err: unknown) {
       const e = err as { response?: { data?: { message?: string; errors?: Record<string, string[]> } } }
       const msgs = e.response?.data?.errors

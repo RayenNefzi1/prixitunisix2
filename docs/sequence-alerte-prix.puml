@@ -1,0 +1,25 @@
+@startuml
+actor Client
+participant PriceAlertController
+participant PriceAlert
+participant Product
+database Database
+
+Client -> PriceAlertController: POST /alerts (product_id, target_price)
+PriceAlertController -> Product: find(product_id)
+
+alt Produit existe
+    rectangle "Créer alerte" {
+        PriceAlertController -> PriceAlert: create(client_id, product_id, target_price)
+        PriceAlert -> Database: save()
+    }
+    
+    rectangle "Planifier vérification" {
+        PriceAlertController -> PriceAlertController: scheduleCheck(alert)
+    }
+    
+    PriceAlertController --> Client: "Alerte créée"
+else Produit non trouvé
+    PriceAlertController --> Client: "Produit non trouvé", 404
+end
+@enduml

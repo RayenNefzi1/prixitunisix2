@@ -1,8 +1,9 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, Menu, Search } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Menu, Search, User, UserCircle } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import AppLogoIcon from '@/components/app-logo-icon';
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { FavoritesDropdown } from '@/components/favorites-dropdown';
 import { TeamSwitcher } from '@/components/team-switcher';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -180,6 +181,21 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                     </div>
 
                     <div className="ml-auto flex items-center space-x-2">
+                        <FavoritesDropdown />
+                        <TooltipProvider delayDuration={0}>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <Button variant="ghost" size="icon" asChild>
+                                        <Link href="/client/dashboard">
+                                            <UserCircle className="h-5 w-5" />
+                                        </Link>
+                                    </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Mon Compte</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                         <div className="relative flex items-center space-x-1">
                             <Button
                                 variant="ghost"

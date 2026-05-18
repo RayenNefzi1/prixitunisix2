@@ -19,7 +19,7 @@ import scrapy
 
 from prixtunisix.items import OfferItem
 
-TUNISIATECH_WEBSITE_ID = 4
+TUNISIATECH_WEBSITE_ID = 5
 
 # ── Spec key normalisation ──────────────────────────────────────────────────
 SPEC_KEY_MAP: dict[str, str] = {
@@ -104,7 +104,17 @@ class TunisiatechSpider(scrapy.Spider):
     name = "tunisiatech"
     allowed_domains = ["tunisiatech.tn"]
     # Start from sitemap — homepage nav is JS-rendered so CSS selectors return nothing
-    start_urls = ["https://tunisiatech.tn/1_fr_0_sitemap.xml"]
+    # Also crawl the marques page for brand URLs and key categories
+    start_urls = [
+        "https://tunisiatech.tn/1_fr_0_sitemap.xml",
+        "https://tunisiatech.tn/marques",
+        # Main category pages (Univers)
+        "https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique",  # Informatique
+        "https://tunisiatech.tn/17-univers-telephonie",  # Smartphones/Telephonie
+        "https://tunisiatech.tn/18-univers-maison",  # Electromenager
+        "https://tunisiatech.tn/164-univers-gaming-en-tunisie",  # Gaming
+        "https://tunisiatech.tn/210-sports-et-loisirs",  # Sports et Loisirs
+    ]
 
     custom_settings = {
         "DOWNLOAD_DELAY": 1.0,
@@ -121,8 +131,20 @@ class TunisiatechSpider(scrapy.Spider):
     }
 
     def parse(self, response):
+        """Main entry point — handles sitemap, marques page, and category pages."""
+        # Check if this is a sitemap XML
+        if "sitemap.xml" in response.url:
+            return self._parse_sitemap(response)
+        
+        # Check if this is the marques page (brand listing)
+        if "/marques" in response.url and ".html" not in response.url:
+            return self._parse_marques(response)
+        
+        # For category/brand pages, use parse_category
+        return self.parse_category(response)
+
+    def _parse_sitemap(self, response):
         """Sitemap XML — extract all product and category URLs."""
-        # Remove XML namespaces so XPath //loc works regardless of xmlns declaration
         response.selector.remove_namespaces()
         locs = response.xpath("//loc/text()").getall()
 
@@ -159,21 +181,42 @@ class TunisiatechSpider(scrapy.Spider):
         for url in category_links:
             yield scrapy.Request(url, callback=self.parse_category)
 
+    def _parse_marques(self, response):
+        """Parse the marques (brands) page to extract brand product listing URLs."""
+        # Brand links are in the format: https://tunisiatech.tn/brand/NN-brand-name
+        brand_links = response.css("div#content-section a::attr(href)").getall()
+        
+        # Also check for brand links in manufacturer logos
+        if not brand_links:
+            brand_links = response.css("ul#brands_list a::attr(href)").getall()
+        
+        # Fallback: look for any link containing /brand/
+        if not brand_links:
+            brand_links = response.xpath("//a[contains(@href, '/brand/')]/@href").getall()
+
+        self.logger.info(f"[tunisiatech] Found {len(brand_links)} brand pages from marques")
+
+        for url in brand_links:
+            if url and "/brand/" in url:
+                yield response.follow(url, self.parse_category)
+
     def parse_category(self, response):
         """Parse a listing page — follow each product URL."""
-        # PrestaShop product cards
-        articles = response.css("article.product-miniature")
+        # PrestaShop product cards - new theme uses div.product-miniature
+        articles = response.css("div.product-miniature")
         self.logger.info(f"[tunisiatech] {len(articles)} products on {response.url}")
 
         for article in articles:
             url = (
                 article.css("a.product-cover-link::attr(href)").get()
+                or article.css("h5.product-name a::attr(href)").get()
                 or article.css("p.product-name a::attr(href)").get()
                 or article.css("h2.product-title a::attr(href)").get()
                 or article.css("a::attr(href)").get()
             )
             title = (
-                article.css("p.product-name a::text").get("").strip()
+                article.css("h5.product-name a::text").get("").strip()
+                or article.css("p.product-name a::text").get("").strip()
                 or article.css("h2.product-title a::text").get("").strip()
                 or article.css("img::attr(title)").get("").strip()
                 or article.css("img::attr(alt)").get("").strip()
@@ -195,6 +238,7 @@ class TunisiatechSpider(scrapy.Spider):
                     article.css("img.js-lazy::attr(data-original)").get()
                     or article.css("img::attr(data-original)").get()
                     or article.css("img::attr(src)").get()
+                    or article.css("img::attr(data-src)").get()
                 ),
                 "is_available": True,   # refined in parse_product
             }
@@ -232,9 +276,10 @@ class TunisiatechSpider(scrapy.Spider):
                     break
 
         # ── Availability ───────────────────────────────────────────────────
+        # Default to True - products are available unless explicitly marked out of stock
+        out_of_stock_label = response.css(".product-unavailable, .out-of-stock-label, .out_of_stock").get()
         add_btn = response.css(".add-to-cart::attr(disabled)").get()
-        out_of_stock_label = response.css(".product-unavailable, .out-of-stock").get()
-        is_available = (add_btn is None) and (out_of_stock_label is None)
+        is_available = out_of_stock_label is None and add_btn is None
 
         # ── Specs ──────────────────────────────────────────────────────────
         specs = _parse_specs(response)

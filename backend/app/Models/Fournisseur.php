@@ -47,6 +47,26 @@ class Fournisseur extends Model
         return $this->hasMany(ProductView::class);
     }
 
+    public function subscription()
+    {
+        return $this->hasOne(FournisseurSubscription::class)->latestOfMany();
+    }
+
+    public function hasActiveSubscription(): bool
+    {
+        return $this->subscription && $this->subscription->isActive();
+    }
+
+    public function canBeScraped(): bool
+    {
+        return $this->subscription && $this->subscription->canBeScraped();
+    }
+
+    public function appearsOnWebsite(): bool
+    {
+        return $this->subscription && $this->subscription->appearsOnWebsite();
+    }
+
     public static function generateApiKey(): string
     {
         return 'fkv_' . bin2hex(random_bytes(32));

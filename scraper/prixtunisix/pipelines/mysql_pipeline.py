@@ -106,7 +106,7 @@ BRANDS = [
 
 _ACCENT_MAP = str.maketrans(
     "àâäáãèéêëîïíìôöòóùûüúç",
-    "aaaaaeeeeiiiiooooouuuuc"
+    "aaaaaeeeeiiiooooouuuuc"
 )
 
 
@@ -305,18 +305,9 @@ class MysqlPipeline:
             )
 
             # ── 4. Queue no-reference offers for admin review ─────────────
-            if not matched_product_id:
-                cur.execute(
-                    "SELECT id FROM product_matches WHERE offer_id = %s AND status = 'pending' LIMIT 1",
-                    (offer_id,),
-                )
-                if not cur.fetchone():
-                    cur.execute(
-                        """INSERT INTO product_matches
-                           (offer_id, product_id, confidence_score, status, created_at, updated_at)
-                           VALUES (%s, NULL, 0.0, 'pending', %s, %s)""",
-                        (offer_id, now, now),
-                    )
+            # NOTE: product_matches.product_id has NOT NULL constraint, so we skip
+            # the insert when there's no matched_product_id. The offer is saved
+            # but not linked to any product - manual matching required later.
 
             self.conn.commit()
 

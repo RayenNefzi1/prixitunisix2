@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import api from '@/lib/api'
+import { isLoggedIn } from '@/lib/auth'
 import PriceHistoryChart from '@/components/product/PriceHistoryChart'
+import LoginModal from '@/components/common/LoginModal'
 import { Heart, Bell, ExternalLink, ChevronRight, Star, Package, Tag, ArrowLeft, TrendingDown, CheckCircle } from 'lucide-react'
 
 interface Offer {
@@ -36,6 +38,7 @@ export default function ProductDetailPage() {
   const [loading, setLoading] = useState(true)
   const [liked, setLiked]     = useState(false)
   const [alertSet, setAlertSet] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false)
 
   useEffect(() => {
     api.get(`/products/${id}`)
@@ -154,10 +157,17 @@ export default function ProductDetailPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
-                  <button onClick={() => setLiked(v => !v)}
+                  <button onClick={() => {
+                    if (!isLoggedIn()) {
+                      setShowLoginModal(true)
+                      return
+                    }
+                    setLiked(v => !v)
+                  }}
                     className={`p-2.5 rounded-xl border transition ${liked ? 'border-red-200 bg-red-50 text-red-500' : 'border-gray-200 text-gray-400 hover:border-red-200 hover:text-red-400'}`}>
                     <Heart className={`w-5 h-5 ${liked ? 'fill-current' : ''}`} />
                   </button>
+                  <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} />
                   <button onClick={() => setAlertSet(v => !v)}
                     className={`p-2.5 rounded-xl border transition ${alertSet ? 'border-brand-200 bg-brand-50 text-brand-600' : 'border-gray-200 text-gray-400 hover:border-brand-200 hover:text-brand-600'}`}>
                     <Bell className="w-5 h-5" />

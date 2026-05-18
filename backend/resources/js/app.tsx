@@ -9,12 +9,18 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
+    resolve: (name) => {
+        const pages = import.meta.glob('./pages/**/*.tsx', { eager: true });
+        return pages[`./pages/${name}.tsx`];
+    },
     layout: (name) => {
         switch (true) {
             case name === 'welcome':
                 return null;
             case name.startsWith('auth/'):
                 return AuthLayout;
+            case name.startsWith('client/'):
+                return AppLayout;
             case name.startsWith('settings/'):
             case name.startsWith('teams/'):
                 return [AppLayout, SettingsLayout];

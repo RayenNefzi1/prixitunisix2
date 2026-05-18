@@ -52,9 +52,18 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
-    public function show(Product $product): JsonResponse
+    public function show(Request $request, Product $product): JsonResponse
     {
         $product->load('category', 'brand', 'offers.merchantWebsite', 'offers.discount');
+
+        if ($request->user()) {
+            $client = $request->user()->client;
+            if ($client) {
+                $client->viewedProducts()->syncWithoutDetaching([
+                    $product->id => ['created_at' => now()],
+                ]);
+            }
+        }
 
         return response()->json($product);
     }
@@ -63,7 +72,7 @@ class ProductController extends Controller
      * SEF URL: /produits/{categorySlug}/{productSlug}
      * Fetches product by slug, verifying category matches.
      */
-    public function showBySlug(string $categorySlug, string $productSlug): JsonResponse
+    public function showBySlug(Request $request, string $categorySlug, string $productSlug): JsonResponse
     {
         $product = Product::with(['category', 'brand', 'offers.merchantWebsite', 'offers.discount'])
             ->where('slug', $productSlug)
@@ -71,6 +80,15 @@ class ProductController extends Controller
 
         if (!$product) {
             return response()->json(['message' => 'Produit introuvable.'], 404);
+        }
+
+        if ($request->user()) {
+            $client = $request->user()->client;
+            if ($client) {
+                $client->viewedProducts()->syncWithoutDetaching([
+                    $product->id => ['created_at' => now()],
+                ]);
+            }
         }
 
         return response()->json($product);

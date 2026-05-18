@@ -1,0 +1,304 @@
+\chapter*{Chapter 5}
+\markboth{Chapter 5}{5 Testing, Deployment and Conclusion}
+\addcontentsline{toc}{chapter}{5 Testing, Deployment and Conclusion}
+
+\textsc{\textbf{\Huge Testing, Deployment and Conclusion}} \\ \\
+
+\stepcounter{chapter}
+
+% ============================================================
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+This chapter covers the final phase of the project, addressing
+Sprints 7 and 8 which focused on testing, deployment, and
+concluding the development work. While the previous chapters
+described the implementation of features, this chapter explains
+how those features were validated and prepared for production
+use. The testing phase ensured that the platform functioned
+correctly and met quality standards. The deployment phase
+made the platform accessible to users. The conclusion summarizes
+the entire project and identifies areas for future enhancement.
+
+The work in these final sprints was different from the earlier
+implementation sprints. Rather than building new features, the
+focus shifted to verifying existing functionality, fixing issues
+discovered during testing, and preparing the application for
+production deployment. This phase required different skills and
+approaches compared to feature development.
+
+% ============================================================
+\section*{Sprint 7: Testing and Quality Assurance}
+\addcontentsline{toc}{section}{Sprint 7: Testing and Quality Assurance}
+
+\subsection*{Sprint Overview}
+
+Sprint 7 concentrated on verifying that the platform worked
+correctly and met quality standards. Testing is a critical
+phase in any software project that ensures features function
+as intended and that defects are identified and resolved before
+users encounter them. This sprint implemented a comprehensive
+testing strategy covering multiple levels of verification.
+
+The testing approach followed the principle of the testing
+pyramid, with many unit tests at the base for individual
+components, fewer integration tests for verifying component
+interactions, and fewer still end-to-end tests for critical
+user workflows. This distribution ensures that most testing
+is fast and focused while still validating overall system
+behavior.
+
+The Laravel framework provided excellent support for testing
+through its built-in testing tools. PHPUnit served as the
+testing framework, with Laravel's HTTP tests for API endpoints,
+feature tests for business logic, and unit tests for individual
+methods. The test database configuration allowed tests to run
+against an in-memory database that was fresh for each test.
+
+Unit tests targeted individual methods and functions to verify
+they produced correct outputs for given inputs. These tests were
+fast to execute and easy to write, making them ideal for
+catching bugs early in development. The authentication module
+had extensive unit tests covering password hashing, token
+generation, and role checking.
+
+Feature tests verified larger pieces of functionality by
+simulating user interactions. These tests made HTTP requests
+to the API and verified the responses, checking both the
+status codes and the content of returned data. Feature tests
+for the product search ensured that queries returned expected
+results with proper filtering and sorting.
+
+The code coverage tools measured how much of the codebase
+was exercised by tests. While complete coverage is not
+achievable or necessary, targeting important business logic
+ensured that critical paths were validated. The authentication,
+search, and pricing calculations received particular attention
+due to their central role in the platform.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3.5cm}|m{5.5cm}|}
+\hline
+\textbf{Test Type} & \textbf{Purpose} \\ \hline
+Unit Tests & Verify individual methods and functions \\ \hline
+Feature Tests & Test API endpoints and business workflows \\ \hline
+Integration Tests & Verify component interactions \\ \hline
+Regression Tests & Ensure fixes do not break existing features \\ \hline
+\end{tabular}
+\caption{Testing Types Used in Sprint 7}
+\label{tab:testing_types}
+\end{center}
+\end{table}
+
+The test-driven development approach was used for some new
+features where tests were written before the implementation.
+This practice helped clarify requirements and ensured that
+the implementation met the defined expectations. For existing
+features, tests were written to capture current behavior and
+then expanded as issues were discovered.
+
+Bug tracking integrated with the sprint workflow. Issues
+identified during testing were documented, prioritized, and
+resolved before proceeding to deployment. Critical bugs that
+affected core functionality received immediate attention,
+while minor issues were scheduled for resolution in subsequent
+iterations.
+
+Security testing verified that the authentication and authorization
+systems functioned correctly. Password requirements were validated,
+session management was tested, and role-based access controls
+were verified for each user type. This testing ensured that
+users could only access features appropriate to their role.
+
+Performance testing evaluated how the system handled load.
+Search queries were tested with large datasets to ensure
+response times remained acceptable. The database was checked
+for proper indexing, and slow queries were optimized. Caching
+strategies were verified to confirm they provided the expected
+performance improvements.
+
+Testing results were positive overall. The authentication
+system passed all security tests. Search functionality returned
+accurate results within acceptable timeframes. The role-based
+access controls worked correctly for all user types. Minor
+issues discovered were documented and resolved.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Test results / Postman API tests / Coverage report}
+\end{center}
+caption{Testing Results}
+\label{fig:testing_results}
+\end{figure}
+
+% ============================================================
+\section*{Sprint 8: Deployment and Finalization}
+\addcontentsline{toc}{section}{Sprint 8: Deployment and Finalization}
+
+\subsection*{Sprint Overview}
+
+Sprint 8 focused on preparing the platform for production use
+and completing the project. This involved configuring the
+application for deployment, setting up the production environment,
+and performing the final release. The goal was to make the
+platform accessible to real users while ensuring stability
+and maintainability.
+
+The deployment process started with preparing the application
+configuration for production. Environment variables were set
+for production values, including database connections, caching
+servers, and external service credentials. Debug mode was
+disabled and error handling was configured to show user-friendly
+messages rather than technical details.
+
+The server infrastructure was configured to host the Laravel
+application. This included setting up the web server, configuring
+PHP runtime settings, and establishing the database connection.
+The caching layer using Redis was verified to be functioning
+correctly in the production environment.
+
+The database migration system ensured that the production
+database had the correct schema. Migration scripts that had
+been developed throughout the project were executed against
+the production database, creating all necessary tables and
+indexes. Seed data was applied for foundational data like
+categories and initial administrative accounts.
+
+Deployment scripts automated the release process. These scripts
+handled pulling the latest code, running migrations, clearing
+and warming caches, and restarting background workers. This
+automation reduced the risk of human error during deployment
+and allowed for consistent reproducible releases.
+
+Rollback procedures were established in case issues were
+discovered after deployment. The version control system
+maintained previous releases, allowing quick reversion if
+necessary. Database migrations were designed to be reversible
+where possible to facilitate rollbacks.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|m{3.5cm}|m{5.5cm}|}
+\hline
+\textbf{Deployment Task} & \textbf{Description} \\ \hline
+Environment Configuration & Production settings for all services \\ \hline
+Server Setup & Web server and PHP configuration \\ \hline
+Database Preparation & Migrations and initial data setup \\ \hline
+Release Automation & Automated deployment scripts \\ \hline
+Rollback Procedures & Plan for reverting problematic releases \\ \hline
+\end{tabular}
+\caption{Deployment Components}
+\label{tab:deployment_components}
+\end{center}
+\end{table}
+
+Monitoring was configured to track the health and performance
+of the production system. Log aggregation collected application
+logs for analysis. Performance metrics were collected to track
+response times and resource usage. Alert thresholds were set
+to notify administrators of potential issues.
+
+The user documentation was completed during this sprint. This
+included API documentation for developers integrating with
+the platform, user guides for the various user types, and
+administrator documentation for managing the system.
+
+A thorough final review verified that all planned features
+were implemented and met the defined requirements. The product
+backlog was reviewed to ensure all committed items were
+complete. Any remaining items were moved to a future release
+backlog for consideration in post-project maintenance.
+
+Testing in the production environment verified that the
+deployment was successful. End-to-end tests executed critical
+user workflows to confirm everything worked as expected.
+Load testing verified the system could handle expected
+traffic levels.
+
+The production launch was successful. Users could access
+the platform and use all implemented features. The monitoring
+system tracked system health and quickly identified any
+initial issues that required attention.
+
+\begin{figure}[H]
+\begin{center}
+\fbox{Add screenshot: Production dashboard / Deployment logs / Monitoring}
+\end{center}
+caption{Deployment Interface}
+\label{fig:deployment_interface}
+\end{figure}
+
+% ============================================================
+\section*{Conclusion and Perspectives}
+\addcontentsline{toc}{section}{Conclusion and Perspectives}
+\addcontentsline{toc}{subsection}{Conclusion}
+% ============================================================
+
+The PrixTunisix project was successfully completed with all
+planned features implemented and deployed. The platform now
+provides a comprehensive price comparison service that serves
+multiple user types with their specific needs.
+
+Visitors can browse products, search for items, and compare
+prices across different merchants without creating accounts.
+Authenticated clients gain access to personalized features
+like favorites, price alerts, and wishlists that enhance their
+shopping experience. Merchants can manage their product
+offerings and track their performance on the platform.
+Administrators have tools to manage users, validate products,
+and monitor overall platform health.
+
+The technical architecture proved effective throughout the
+project. Laravel provided a solid foundation for rapid
+development. The role-based authentication system scaled well
+to support five distinct user types. The product catalog and
+search functionality handled large datasets efficiently. The
+scraping system automated data collection from merchant websites.
+
+The SCRUM methodology worked well for managing the development
+process. The eight sprints provided clear milestones and
+accountability. Regular standups kept the team aligned. Sprint
+reviews demonstrated progress to stakeholders. Retrospectives
+identified areas for improvement.
+
+The final product meets the requirements established at the
+beginning of the project. Users can find the best prices on
+products they want to purchase. The platform generates value
+for both consumers seeking deals and merchants seeking customers.
+
+% ============================================================
+\subsection*{Future Work}
+\addcontentsline{toc}{subsection}{Future Work}
+
+While the current implementation provides a complete price
+comparison platform, several enhancements could be made in
+future iterations.
+
+The mobile application could be developed to provide a native
+experience for users who prefer accessing the platform through
+their phones. This would require additional development beyond
+the current responsive web interface.
+
+Additional merchants could be integrated into the scraping
+system, expanding the product catalog and increasing the
+value provided to users. The matching system could be enhanced
+with machine learning to improve accuracy.
+
+Advanced features like price prediction could leverage
+historical data to forecast future price movements. This
+would help users decide whether to buy now or wait for a
+better price.
+
+Social features could enable users to share deals with friends
+or collaborate on purchase decisions. This would increase
+user engagement and grow the platform organically.
+
+The integration with more external services could enhance
+the platform's capabilities. Payment processing could enable
+transactions directly on the platform rather than redirecting
+to merchant sites.
+
+These possibilities represent opportunities for continued
+development beyond the initial project scope while building
+upon the solid foundation that has been established.

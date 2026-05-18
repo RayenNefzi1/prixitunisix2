@@ -1,0 +1,19 @@
+@startuml
+actor Employe
+participant ProductController
+participant Product
+database Database
+
+Employe -> ProductController: PUT /products/validate (product_id)
+ProductController -> Product: find(product_id)
+
+alt Produit existe
+    rectangle "Valider le produit" {
+        Product -> Database: update(is_validated = true)
+    }
+    
+    ProductController --> Employe: "Produit validé"
+else Produit non trouvé
+    ProductController --> Employe: "Produit non trouvé", 404
+end
+@enduml

@@ -63,11 +63,6 @@ class Offer extends Model
         return $this->hasOne(Discount::class)->where('is_active', true)->latest();
     }
 
-    public function cartItems()
-    {
-        return $this->hasMany(CartItem::class);
-    }
-
     public function redirectClicks()
     {
         return $this->hasMany(RedirectClick::class);

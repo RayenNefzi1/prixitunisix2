@@ -1,0 +1,1403 @@
+2026-05-12 23:49:54 [scrapy.utils.log] INFO: Scrapy 2.11.1 started (bot: prixtunisix)
+2026-05-12 23:49:55 [scrapy.utils.log] INFO: Versions: lxml 6.0.4.0, libxml2 2.11.9, cssselect 1.4.0, parsel 1.11.0, w3lib 2.4.1, Twisted 25.5.0, Python 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)], pyOpenSSL 26.0.0 (OpenSSL 3.5.6 7 Apr 2026), cryptography 46.0.7, Platform Windows-11-10.0.26100-SP0
+2026-05-12 23:49:55 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-05-12 23:49:55 [scrapy.extensions.telnet] INFO: Telnet Password: c00ea56d7c606140
+2026-05-12 23:49:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2026-05-12 23:49:55 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 5,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'prixtunisix',
+ 'DOWNLOAD_DELAY': 1.0,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'prixtunisix.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'SPIDER_MODULES': ['prixtunisix.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
+2026-05-12 23:49:55 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2026-05-12 23:49:55 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2026-05-12 23:49:55 [scrapy.middleware] INFO: Enabled item pipelines:
+['prixtunisix.pipelines.pg_pipeline.PgPipeline']
+2026-05-12 23:49:55 [scrapy.core.engine] INFO: Spider opened
+2026-05-12 23:49:55 [tunisiatech] INFO: PgPipeline: connecting to 127.0.0.1:5432/prix_tunisix
+2026-05-12 23:49:56 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-05-12 23:49:56 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2026-05-12 23:49:58 [tunisiatech] INFO: [tunisiatech] Found 560 brand pages from marques
+2026-05-12 23:49:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique
+2026-05-12 23:50:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie
+2026-05-12 23:50:01 [tunisiatech] INFO: [tunisiatech] Sitemap: 2258 products, 129 categories
+2026-05-12 23:50:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison
+2026-05-12 23:50:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie
+2026-05-12 23:50:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs
+2026-05-12 23:50:06 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/201-abkoncore
+2026-05-12 23:50:08 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/brand/259-beurer
+2026-05-12 23:50:09 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/190-beko
+2026-05-12 23:50:10 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/212-azur
+2026-05-12 23:50:11 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/150-auxstar
+2026-05-12 23:50:13 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/107-aula
+2026-05-12 23:50:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/44-asus
+2026-05-12 23:50:15 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/105-artek
+2026-05-12 23:50:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/68-apple
+2026-05-12 23:50:18 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/184-anker
+2026-05-12 23:50:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=11&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:50:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=2
+2026-05-12 23:50:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=2
+2026-05-12 23:50:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/228-impression
+2026-05-12 23:50:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=2
+2026-05-12 23:50:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=2
+2026-05-12 23:50:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs?page=2
+2026-05-12 23:50:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/44-asus?page=2
+2026-05-12 23:50:39 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/68-apple?page=2
+2026-05-12 23:50:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=12&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:50:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=3
+2026-05-12 23:50:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=3
+2026-05-12 23:50:45 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/228-impression?page=2
+2026-05-12 23:50:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=3
+2026-05-12 23:50:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=3
+2026-05-12 23:50:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs?page=3
+2026-05-12 23:50:56 [scrapy.extensions.logstats] INFO: Crawled 47 pages (at 47 pages/min), scraped 14 items (at 14 items/min)
+2026-05-12 23:50:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/44-asus?page=3
+2026-05-12 23:51:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=13&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:51:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=4
+2026-05-12 23:51:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=4
+2026-05-12 23:51:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=4
+2026-05-12 23:51:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=4
+2026-05-12 23:51:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs?page=4
+2026-05-12 23:51:19 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/44-asus?page=4
+2026-05-12 23:51:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=14&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:51:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=5
+2026-05-12 23:51:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=5
+2026-05-12 23:51:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=5
+2026-05-12 23:51:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=5
+2026-05-12 23:51:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs?page=5
+2026-05-12 23:51:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=15&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:51:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=6
+2026-05-12 23:51:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=6
+2026-05-12 23:51:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=6
+2026-05-12 23:51:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=6
+2026-05-12 23:51:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs?page=6
+2026-05-12 23:51:56 [scrapy.extensions.logstats] INFO: Crawled 96 pages (at 49 pages/min), scraped 43 items (at 29 items/min)
+2026-05-12 23:52:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=16&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:52:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=7
+2026-05-12 23:52:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=7
+2026-05-12 23:52:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=7
+2026-05-12 23:52:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=7
+2026-05-12 23:52:12 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs?page=7
+2026-05-12 23:52:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=17&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:52:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=8
+2026-05-12 23:52:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=8
+2026-05-12 23:52:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=8
+2026-05-12 23:52:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=8
+2026-05-12 23:52:33 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/210-sports-et-loisirs?page=8
+2026-05-12 23:52:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=18&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:52:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=9
+2026-05-12 23:52:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=9
+2026-05-12 23:52:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=9
+2026-05-12 23:52:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=9
+2026-05-12 23:52:56 [scrapy.extensions.logstats] INFO: Crawled 145 pages (at 49 pages/min), scraped 75 items (at 32 items/min)
+2026-05-12 23:53:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=19&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:53:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=10
+2026-05-12 23:53:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=10
+2026-05-12 23:53:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=10
+2026-05-12 23:53:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=10
+2026-05-12 23:53:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=20&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:53:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=11
+2026-05-12 23:53:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=11
+2026-05-12 23:53:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=11
+2026-05-12 23:53:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=11
+2026-05-12 23:53:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=21&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:53:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=12
+2026-05-12 23:53:56 [scrapy.extensions.logstats] INFO: Crawled 190 pages (at 45 pages/min), scraped 108 items (at 33 items/min)
+2026-05-12 23:53:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=12
+2026-05-12 23:53:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=12
+2026-05-12 23:53:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=12
+2026-05-12 23:54:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=22&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:54:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=13
+2026-05-12 23:54:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=13
+2026-05-12 23:54:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=13
+2026-05-12 23:54:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=13
+2026-05-12 23:54:33 [tunisiatech] INFO: QUEUED (no ref) | Téléphone Portable Geniphone A2 Mini Rouge | 37.000 TND
+2026-05-12 23:54:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=23&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:54:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=14
+2026-05-12 23:54:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=14
+2026-05-12 23:54:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=14
+2026-05-12 23:54:41 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie?page=14
+2026-05-12 23:54:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=24&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:54:56 [scrapy.extensions.logstats] INFO: Crawled 239 pages (at 49 pages/min), scraped 143 items (at 35 items/min)
+2026-05-12 23:54:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=15
+2026-05-12 23:54:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=15
+2026-05-12 23:55:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=15
+2026-05-12 23:55:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=25&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:55:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=16
+2026-05-12 23:55:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=16
+2026-05-12 23:55:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=16
+2026-05-12 23:55:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=26&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:55:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=17
+2026-05-12 23:55:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=17
+2026-05-12 23:55:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=17
+2026-05-12 23:55:56 [scrapy.extensions.logstats] INFO: Crawled 285 pages (at 46 pages/min), scraped 178 items (at 35 items/min)
+2026-05-12 23:56:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=27&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:56:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=18
+2026-05-12 23:56:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=18
+2026-05-12 23:56:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=18
+2026-05-12 23:56:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=28&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:56:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=19
+2026-05-12 23:56:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=19
+2026-05-12 23:56:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=19
+2026-05-12 23:56:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=29&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:56:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=20
+2026-05-12 23:56:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=20
+2026-05-12 23:56:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=20
+2026-05-12 23:56:56 [scrapy.extensions.logstats] INFO: Crawled 332 pages (at 47 pages/min), scraped 213 items (at 35 items/min)
+2026-05-12 23:57:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=30&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:57:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=21
+2026-05-12 23:57:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=21
+2026-05-12 23:57:12 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=21
+2026-05-12 23:57:28 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/35-samsung?page=31&srsltid=AfmBOoqF5PaNjzXCOvaeATChBDnvSX00QMqBLoON-vR-lXO4gvEluOct
+2026-05-12 23:57:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=22
+2026-05-12 23:57:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=22
+2026-05-12 23:57:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=22
+2026-05-12 23:57:51 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique?page=23
+2026-05-12 23:57:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=23
+2026-05-12 23:57:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=23
+2026-05-12 23:57:56 [scrapy.extensions.logstats] INFO: Crawled 381 pages (at 49 pages/min), scraped 251 items (at 38 items/min)
+2026-05-12 23:58:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=24
+2026-05-12 23:58:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=24
+2026-05-12 23:58:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=25
+2026-05-12 23:58:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=25
+2026-05-12 23:58:56 [scrapy.extensions.logstats] INFO: Crawled 428 pages (at 47 pages/min), scraped 293 items (at 42 items/min)
+2026-05-12 23:58:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=26
+2026-05-12 23:58:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=26
+2026-05-12 23:59:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=27
+2026-05-12 23:59:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=27
+2026-05-12 23:59:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=28
+2026-05-12 23:59:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=28
+2026-05-12 23:59:56 [scrapy.extensions.logstats] INFO: Crawled 474 pages (at 46 pages/min), scraped 334 items (at 41 items/min)
+2026-05-13 00:00:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=29
+2026-05-13 00:00:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=29
+2026-05-13 00:00:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=30
+2026-05-13 00:00:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=30
+2026-05-13 00:00:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=31
+2026-05-13 00:00:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=31
+2026-05-13 00:00:56 [scrapy.extensions.logstats] INFO: Crawled 521 pages (at 47 pages/min), scraped 374 items (at 40 items/min)
+2026-05-13 00:01:08 [tunisiatech] INFO: QUEUED (no ref) | Téléphone portable Clever C5 bleu | 45.000 TND
+2026-05-13 00:01:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=32
+2026-05-13 00:01:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=32
+2026-05-13 00:01:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=33
+2026-05-13 00:01:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=33
+2026-05-13 00:01:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=34
+2026-05-13 00:01:56 [scrapy.extensions.logstats] INFO: Crawled 566 pages (at 45 pages/min), scraped 415 items (at 41 items/min)
+2026-05-13 00:01:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=34
+2026-05-13 00:02:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=35
+2026-05-13 00:02:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=35
+2026-05-13 00:02:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=36
+2026-05-13 00:02:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=36
+2026-05-13 00:02:56 [scrapy.extensions.logstats] INFO: Crawled 615 pages (at 49 pages/min), scraped 459 items (at 44 items/min)
+2026-05-13 00:02:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=37
+2026-05-13 00:02:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=37
+2026-05-13 00:03:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=38
+2026-05-13 00:03:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=38
+2026-05-13 00:03:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=39
+2026-05-13 00:03:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=39
+2026-05-13 00:03:57 [scrapy.extensions.logstats] INFO: Crawled 663 pages (at 48 pages/min), scraped 501 items (at 42 items/min)
+2026-05-13 00:04:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=40
+2026-05-13 00:04:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=40
+2026-05-13 00:04:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=41
+2026-05-13 00:04:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=41
+2026-05-13 00:04:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=42
+2026-05-13 00:04:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=42
+2026-05-13 00:04:56 [scrapy.extensions.logstats] INFO: Crawled 705 pages (at 42 pages/min), scraped 537 items (at 36 items/min)
+2026-05-13 00:05:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=43
+2026-05-13 00:05:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=43
+2026-05-13 00:05:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=44
+2026-05-13 00:05:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=44
+2026-05-13 00:05:56 [scrapy.extensions.logstats] INFO: Crawled 751 pages (at 46 pages/min), scraped 579 items (at 42 items/min)
+2026-05-13 00:05:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=45
+2026-05-13 00:06:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=45
+2026-05-13 00:06:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=46
+2026-05-13 00:06:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=46
+2026-05-13 00:06:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=47
+2026-05-13 00:06:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=47
+2026-05-13 00:06:56 [scrapy.extensions.logstats] INFO: Crawled 799 pages (at 48 pages/min), scraped 621 items (at 42 items/min)
+2026-05-13 00:07:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=48
+2026-05-13 00:07:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=48
+2026-05-13 00:07:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=49
+2026-05-13 00:07:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=49
+2026-05-13 00:07:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=50
+2026-05-13 00:07:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=50
+2026-05-13 00:07:56 [scrapy.extensions.logstats] INFO: Crawled 845 pages (at 46 pages/min), scraped 661 items (at 40 items/min)
+2026-05-13 00:08:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=51
+2026-05-13 00:08:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=51
+2026-05-13 00:08:14 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Smartec vision 3go 64go 4G Gold | 299.000 TND
+2026-05-13 00:08:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=52
+2026-05-13 00:08:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=52
+2026-05-13 00:08:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=53
+2026-05-13 00:08:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=53
+2026-05-13 00:08:56 [scrapy.extensions.logstats] INFO: Crawled 893 pages (at 48 pages/min), scraped 703 items (at 42 items/min)
+2026-05-13 00:09:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=54
+2026-05-13 00:09:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=54
+2026-05-13 00:09:20 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Xiaomi Redmi Note 15 Pro Plus 5G 8 | 1659.000 TND
+2026-05-13 00:09:21 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Xiaomi Redmi Note 15 Pro 5G 8Go 25 | 1659.000 TND
+2026-05-13 00:09:22 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Xiaomi Redmi Note 15 Pro Plus 5G 1 | 1899.000 TND
+2026-05-13 00:09:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=55
+2026-05-13 00:09:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=55
+2026-05-13 00:09:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=56
+2026-05-13 00:09:56 [scrapy.extensions.logstats] INFO: Crawled 942 pages (at 49 pages/min), scraped 746 items (at 43 items/min)
+2026-05-13 00:09:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=56
+2026-05-13 00:10:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=57
+2026-05-13 00:10:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=57
+2026-05-13 00:10:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=58
+2026-05-13 00:10:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=58
+2026-05-13 00:10:50 [tunisiatech] INFO: QUEUED (no ref) | Redmi 15 8Go 256Go 4G Violet | 669.000 TND
+2026-05-13 00:10:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=59
+2026-05-13 00:10:56 [scrapy.extensions.logstats] INFO: Crawled 992 pages (at 50 pages/min), scraped 790 items (at 44 items/min)
+2026-05-13 00:10:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=59
+2026-05-13 00:11:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=60
+2026-05-13 00:11:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=60
+2026-05-13 00:11:20 [tunisiatech] INFO: QUEUED (no ref) | Tablette Doogee Tab A9 PRO VIP Édition 20Go 1 | 349.000 TND
+2026-05-13 00:11:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=61
+2026-05-13 00:11:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=61
+2026-05-13 00:11:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=62
+2026-05-13 00:11:56 [scrapy.extensions.logstats] INFO: Crawled 1043 pages (at 51 pages/min), scraped 836 items (at 46 items/min)
+2026-05-13 00:11:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=62
+2026-05-13 00:12:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=63
+2026-05-13 00:12:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=63
+2026-05-13 00:12:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=64
+2026-05-13 00:12:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=64
+2026-05-13 00:12:56 [scrapy.extensions.logstats] INFO: Crawled 1092 pages (at 49 pages/min), scraped 880 items (at 44 items/min)
+2026-05-13 00:12:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=65
+2026-05-13 00:12:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=65
+2026-05-13 00:13:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=66
+2026-05-13 00:13:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=66
+2026-05-13 00:13:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=67
+2026-05-13 00:13:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=67
+2026-05-13 00:13:56 [scrapy.extensions.logstats] INFO: Crawled 1142 pages (at 50 pages/min), scraped 923 items (at 43 items/min)
+2026-05-13 00:13:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=68
+2026-05-13 00:14:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=68
+2026-05-13 00:14:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=69
+2026-05-13 00:14:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=69
+2026-05-13 00:14:26 [tunisiatech] INFO: QUEUED (no ref) | Infinix Hot 50i 8Go 256Go Vert | 499.000 TND
+2026-05-13 00:14:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=70
+2026-05-13 00:14:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=70
+2026-05-13 00:14:56 [scrapy.extensions.logstats] INFO: Crawled 1189 pages (at 47 pages/min), scraped 965 items (at 42 items/min)
+2026-05-13 00:15:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=71
+2026-05-13 00:15:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=71
+2026-05-13 00:15:10 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Xiaomi Redmi Note 14 Pro 12Go 512G | 1399.000 TND
+2026-05-13 00:15:11 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Xiaomi Redmi Note 14 Pro 12Go 512G | 1399.000 TND
+2026-05-13 00:15:13 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Xiaomi Redmi Note 14 Pro 12Go 512G | 1399.000 TND
+2026-05-13 00:15:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=72
+2026-05-13 00:15:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=72
+2026-05-13 00:15:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=73
+2026-05-13 00:15:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=73
+2026-05-13 00:15:56 [scrapy.extensions.logstats] INFO: Crawled 1240 pages (at 51 pages/min), scraped 1010 items (at 45 items/min)
+2026-05-13 00:16:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=74
+2026-05-13 00:16:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=74
+2026-05-13 00:16:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=75
+2026-05-13 00:16:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=75
+2026-05-13 00:16:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=76
+2026-05-13 00:16:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=76
+2026-05-13 00:16:56 [scrapy.extensions.logstats] INFO: Crawled 1288 pages (at 48 pages/min), scraped 1052 items (at 42 items/min)
+2026-05-13 00:17:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=77
+2026-05-13 00:17:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=77
+2026-05-13 00:17:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=78
+2026-05-13 00:17:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=78
+2026-05-13 00:17:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=79
+2026-05-13 00:17:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison?page=79
+2026-05-13 00:17:56 [scrapy.extensions.logstats] INFO: Crawled 1338 pages (at 50 pages/min), scraped 1096 items (at 44 items/min)
+2026-05-13 00:18:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=80
+2026-05-13 00:18:10 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/18-univers-maison?page=80
+2026-05-13 00:18:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=81
+2026-05-13 00:18:32 [tunisiatech] INFO: QUEUED (no ref) | Power Bank Oraimo OPB-P204 D 20 000 mAh Noir | 85.000 TND
+2026-05-13 00:18:48 [tunisiatech] INFO: QUEUED (no ref) | Téléphone portable Ipro A20 double SIM Noir | 59.000 TND
+2026-05-13 00:18:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=82
+2026-05-13 00:18:56 [scrapy.extensions.logstats] INFO: Crawled 1385 pages (at 47 pages/min), scraped 1139 items (at 43 items/min)
+2026-05-13 00:19:12 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=83
+2026-05-13 00:19:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=84
+2026-05-13 00:19:56 [scrapy.extensions.logstats] INFO: Crawled 1432 pages (at 47 pages/min), scraped 1184 items (at 45 items/min)
+2026-05-13 00:19:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=85
+2026-05-13 00:20:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=86
+2026-05-13 00:20:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=87
+2026-05-13 00:20:56 [scrapy.extensions.logstats] INFO: Crawled 1480 pages (at 48 pages/min), scraped 1229 items (at 45 items/min)
+2026-05-13 00:21:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=88
+2026-05-13 00:21:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=89
+2026-05-13 00:21:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=90
+2026-05-13 00:21:46 [tunisiatech] INFO: QUEUED (no ref) | Tecno spark 20 pro 8go 256go Vert | 699.000 TND
+2026-05-13 00:21:56 [scrapy.extensions.logstats] INFO: Crawled 1528 pages (at 48 pages/min), scraped 1274 items (at 45 items/min)
+2026-05-13 00:22:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=91
+2026-05-13 00:22:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=92
+2026-05-13 00:22:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=93
+2026-05-13 00:22:56 [scrapy.extensions.logstats] INFO: Crawled 1577 pages (at 49 pages/min), scraped 1320 items (at 46 items/min)
+2026-05-13 00:22:56 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Infinix Hot 40i 8Go 256Go Vert | 519.000 TND
+2026-05-13 00:23:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=94
+2026-05-13 00:23:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=95
+2026-05-13 00:23:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=96
+2026-05-13 00:23:56 [scrapy.extensions.logstats] INFO: Crawled 1625 pages (at 48 pages/min), scraped 1365 items (at 45 items/min)
+2026-05-13 00:24:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=97
+2026-05-13 00:24:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=98
+2026-05-13 00:24:43 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Smartec vision 3go 64go 4G Vert | 299.000 TND
+2026-05-13 00:24:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=99
+2026-05-13 00:24:56 [scrapy.extensions.logstats] INFO: Crawled 1674 pages (at 49 pages/min), scraped 1410 items (at 45 items/min)
+2026-05-13 00:25:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=100
+2026-05-13 00:25:16 [tunisiatech] INFO: QUEUED (no ref) | Téléphone portable Ipro A18 Gsm Noir | 49.000 TND
+2026-05-13 00:25:17 [tunisiatech] INFO: QUEUED (no ref) | Téléphone portable Ipro A18 Gsm  Bleu | 49.000 TND
+2026-05-13 00:25:18 [tunisiatech] INFO: QUEUED (no ref) | Téléphone portable Ipro A18 Gsm Noir&vert | 49.000 TND
+2026-05-13 00:25:20 [tunisiatech] INFO: QUEUED (no ref) | Téléphone portable Ipro A18 Gsm Rouge et noir | 49.000 TND
+2026-05-13 00:25:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=101
+2026-05-13 00:25:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=102
+2026-05-13 00:25:56 [scrapy.extensions.logstats] INFO: Crawled 1723 pages (at 49 pages/min), scraped 1457 items (at 47 items/min)
+2026-05-13 00:26:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=103
+2026-05-13 00:26:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=104
+2026-05-13 00:26:56 [scrapy.extensions.logstats] INFO: Crawled 1772 pages (at 49 pages/min), scraped 1504 items (at 47 items/min)
+2026-05-13 00:26:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=105
+2026-05-13 00:27:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=106
+2026-05-13 00:27:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=107
+2026-05-13 00:27:56 [scrapy.extensions.logstats] INFO: Crawled 1821 pages (at 49 pages/min), scraped 1550 items (at 46 items/min)
+2026-05-13 00:27:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=108
+2026-05-13 00:28:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=109
+2026-05-13 00:28:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=110
+2026-05-13 00:28:56 [scrapy.extensions.logstats] INFO: Crawled 1870 pages (at 49 pages/min), scraped 1596 items (at 46 items/min)
+2026-05-13 00:29:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=111
+2026-05-13 00:29:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=112
+2026-05-13 00:29:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=113
+2026-05-13 00:29:56 [scrapy.extensions.logstats] INFO: Crawled 1918 pages (at 48 pages/min), scraped 1641 items (at 45 items/min)
+2026-05-13 00:30:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=114
+2026-05-13 00:30:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=115
+2026-05-13 00:30:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=116
+2026-05-13 00:30:56 [scrapy.extensions.logstats] INFO: Crawled 1967 pages (at 49 pages/min), scraped 1687 items (at 46 items/min)
+2026-05-13 00:31:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=117
+2026-05-13 00:31:24 [tunisiatech] INFO: QUEUED (no ref) | Pc Portable Dell Pro 15 Essential PV15250 Int | 1759.000 TND
+2026-05-13 00:31:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=118
+2026-05-13 00:31:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=119
+2026-05-13 00:31:56 [scrapy.extensions.logstats] INFO: Crawled 2019 pages (at 52 pages/min), scraped 1735 items (at 48 items/min)
+2026-05-13 00:32:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=120
+2026-05-13 00:32:07 [tunisiatech] INFO: QUEUED (no ref) | Téléphone portable Clever C24 Noir -Gsm | 59.900 TND
+2026-05-13 00:32:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=121
+2026-05-13 00:32:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=122
+2026-05-13 00:32:56 [scrapy.extensions.logstats] INFO: Crawled 2067 pages (at 48 pages/min), scraped 1781 items (at 46 items/min)
+2026-05-13 00:33:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=123
+2026-05-13 00:33:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=124
+2026-05-13 00:33:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=125
+2026-05-13 00:33:56 [scrapy.extensions.logstats] INFO: Crawled 2116 pages (at 49 pages/min), scraped 1827 items (at 46 items/min)
+2026-05-13 00:34:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=126
+2026-05-13 00:34:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=127
+2026-05-13 00:34:36 [tunisiatech] INFO: QUEUED (no ref) | Abonnement TV Streaming GOSAT 12 Mois | 25.000 TND
+2026-05-13 00:34:40 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/112-sac-pc
+2026-05-13 00:34:41 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/95-casque
+2026-05-13 00:34:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/210-sports-et-loisirs
+2026-05-13 00:34:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro
+2026-05-13 00:34:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/230-hotte
+2026-05-13 00:34:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/184-carte-mere
+2026-05-13 00:34:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/196-etuis-et-coques
+2026-05-13 00:34:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies
+2026-05-13 00:34:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/229-imprimantes
+2026-05-13 00:34:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro
+2026-05-13 00:34:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/50-micro-onde
+2026-05-13 00:34:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/238-souris-gaming
+2026-05-13 00:34:56 [scrapy.extensions.logstats] INFO: Crawled 2164 pages (at 48 pages/min), scraped 1861 items (at 34 items/min)
+2026-05-13 00:34:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=128
+2026-05-13 00:35:02 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/221-pack-soin-et-beaute>: HTTP status code is not handled or not allowed
+2026-05-13 00:35:03 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/206-radio
+2026-05-13 00:35:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/92-stockage
+2026-05-13 00:35:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/45-gaz-plaque
+2026-05-13 00:35:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=2
+2026-05-13 00:35:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/230-hotte?page=2
+2026-05-13 00:35:08 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/184-carte-mere?page=2
+2026-05-13 00:35:10 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/196-etuis-et-coques?page=2
+2026-05-13 00:35:12 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=2
+2026-05-13 00:35:12 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/229-imprimantes?page=2
+2026-05-13 00:35:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=2
+2026-05-13 00:35:15 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/50-micro-onde?page=2
+2026-05-13 00:35:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/238-souris-gaming?page=2
+2026-05-13 00:35:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=129
+2026-05-13 00:35:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/34-batteur
+2026-05-13 00:35:22 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/223-multifonction
+2026-05-13 00:35:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/49-refrigerateur-tunisie
+2026-05-13 00:35:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/180-tapis-gaming
+2026-05-13 00:35:25 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/92-stockage?page=2
+2026-05-13 00:35:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/45-gaz-plaque?page=2
+2026-05-13 00:35:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=3
+2026-05-13 00:35:29 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/230-hotte?page=3
+2026-05-13 00:35:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/178-hygiene-soin-et-beaute
+2026-05-13 00:35:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/173-box-android
+2026-05-13 00:35:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=3
+2026-05-13 00:35:34 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/237-microphones-gaming
+2026-05-13 00:35:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=3
+2026-05-13 00:35:37 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/183-alimentation
+2026-05-13 00:35:39 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/238-souris-gaming?page=3
+2026-05-13 00:35:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=130
+2026-05-13 00:35:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/164-univers-gaming-en-tunisie
+2026-05-13 00:35:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/244-moto-electrique-tunisie
+2026-05-13 00:35:43 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/186-memoire-pc
+2026-05-13 00:35:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/49-refrigerateur-tunisie?page=2
+2026-05-13 00:35:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/180-tapis-gaming?page=2
+2026-05-13 00:35:47 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/127-friteuse
+2026-05-13 00:35:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/45-gaz-plaque?page=3
+2026-05-13 00:35:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=4
+2026-05-13 00:35:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil
+2026-05-13 00:35:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/178-hygiene-soin-et-beaute?page=2
+2026-05-13 00:35:53 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/173-box-android?page=2
+2026-05-13 00:35:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=4
+2026-05-13 00:35:56 [scrapy.extensions.logstats] INFO: Crawled 2211 pages (at 47 pages/min), scraped 1865 items (at 4 items/min)
+2026-05-13 00:35:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=4
+2026-05-13 00:35:57 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/121-disque-dur-ssd
+2026-05-13 00:35:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/156-four-encastrable
+2026-05-13 00:36:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=131
+2026-05-13 00:36:01 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/99-carte-memoire
+2026-05-13 00:36:03 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/244-moto-electrique-tunisie?page=2
+2026-05-13 00:36:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo
+2026-05-13 00:36:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/49-refrigerateur-tunisie?page=3
+2026-05-13 00:36:06 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/180-tapis-gaming?page=3
+2026-05-13 00:36:07 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/97-cle-usb
+2026-05-13 00:36:09 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/45-gaz-plaque?page=4
+2026-05-13 00:36:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=5
+2026-05-13 00:36:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=2
+2026-05-13 00:36:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/178-hygiene-soin-et-beaute?page=3
+2026-05-13 00:36:14 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/87-machines-a-laver-en-tunisie-semi-automatique
+2026-05-13 00:36:15 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/146-maison-brico-jardin-tunisie
+2026-05-13 00:36:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=5
+2026-05-13 00:36:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=5
+2026-05-13 00:36:19 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/225-ecran
+2026-05-13 00:36:21 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/156-four-encastrable?page=2
+2026-05-13 00:36:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=132
+2026-05-13 00:36:23 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/231-video-et-accessoires
+2026-05-13 00:36:24 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/208-reseaux
+2026-05-13 00:36:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=2
+2026-05-13 00:36:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/49-refrigerateur-tunisie?page=4
+2026-05-13 00:36:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/167-pc-portable-gaming
+2026-05-13 00:36:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/219-casques
+2026-05-13 00:36:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/75-chauffage
+2026-05-13 00:36:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=6
+2026-05-13 00:36:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=3
+2026-05-13 00:36:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/242-accessoires-velo
+2026-05-13 00:36:36 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/168-unite-gaming
+2026-05-13 00:36:38 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=6
+2026-05-13 00:36:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=6
+2026-05-13 00:36:41 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/98-disque-dur-externe
+2026-05-13 00:36:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie?page=133
+2026-05-13 00:36:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=3
+2026-05-13 00:36:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/49-refrigerateur-tunisie?page=5
+2026-05-13 00:36:49 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/167-pc-portable-gaming?page=2
+2026-05-13 00:36:50 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/219-casques?page=2
+2026-05-13 00:36:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/75-chauffage?page=2
+2026-05-13 00:36:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=7
+2026-05-13 00:36:53 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/235-haut-parleur
+2026-05-13 00:36:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=4
+2026-05-13 00:36:56 [scrapy.extensions.logstats] INFO: Crawled 2257 pages (at 46 pages/min), scraped 1867 items (at 2 items/min)
+2026-05-13 00:36:56 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/242-accessoires-velo?page=2
+2026-05-13 00:36:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/149-hygiene-et-soin-maison
+2026-05-13 00:36:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=7
+2026-05-13 00:37:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo
+2026-05-13 00:37:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=7
+2026-05-13 00:37:02 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/226-sante
+2026-05-13 00:37:04 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/17-univers-telephonie?page=134
+2026-05-13 00:37:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=4
+2026-05-13 00:37:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/49-refrigerateur-tunisie?page=6
+2026-05-13 00:37:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/75-chauffage?page=3
+2026-05-13 00:37:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=8
+2026-05-13 00:37:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=5
+2026-05-13 00:37:20 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/93-clavier
+2026-05-13 00:37:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/149-hygiene-et-soin-maison?page=2
+2026-05-13 00:37:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=8
+2026-05-13 00:37:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=2
+2026-05-13 00:37:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=8
+2026-05-13 00:37:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/239-clavier-gaming
+2026-05-13 00:37:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=5
+2026-05-13 00:37:32 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/49-refrigerateur-tunisie?page=7
+2026-05-13 00:37:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/47-machine-a-laver-tunisie
+2026-05-13 00:37:35 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/75-chauffage?page=4
+2026-05-13 00:37:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions
+2026-05-13 00:37:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=9
+2026-05-13 00:37:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=6
+2026-05-13 00:37:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/18-univers-maison
+2026-05-13 00:37:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/149-hygiene-et-soin-maison?page=3
+2026-05-13 00:37:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=9
+2026-05-13 00:37:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=3
+2026-05-13 00:37:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=9
+2026-05-13 00:37:47 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/239-clavier-gaming?page=2
+2026-05-13 00:37:48 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/138-sorbetiere
+2026-05-13 00:37:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/17-univers-telephonie
+2026-05-13 00:37:50 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/195-telephone-fixe
+2026-05-13 00:37:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=6
+2026-05-13 00:37:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable
+2026-05-13 00:37:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/91-accessoires-pc
+2026-05-13 00:37:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/47-machine-a-laver-tunisie?page=2
+2026-05-13 00:37:56 [scrapy.extensions.logstats] INFO: Crawled 2303 pages (at 46 pages/min), scraped 1875 items (at 8 items/min)
+2026-05-13 00:37:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/203-smartwatch
+2026-05-13 00:37:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=2
+2026-05-13 00:37:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=10
+2026-05-13 00:38:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=7
+2026-05-13 00:38:01 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/153-yaourterie
+2026-05-13 00:38:03 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/149-hygiene-et-soin-maison?page=4
+2026-05-13 00:38:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=10
+2026-05-13 00:38:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=4
+2026-05-13 00:38:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=10
+2026-05-13 00:38:08 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/174-recepteur-numerique>: HTTP status code is not handled or not allowed
+2026-05-13 00:38:10 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/209-securite
+2026-05-13 00:38:11 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/197-protection-ecran
+2026-05-13 00:38:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/245-capsule-de-cafe
+2026-05-13 00:38:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=7
+2026-05-13 00:38:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=2
+2026-05-13 00:38:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/91-accessoires-pc?page=2
+2026-05-13 00:38:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/47-machine-a-laver-tunisie?page=3
+2026-05-13 00:38:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/203-smartwatch?page=2
+2026-05-13 00:38:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=3
+2026-05-13 00:38:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=11
+2026-05-13 00:38:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=8
+2026-05-13 00:38:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/58-pc-de-bureau
+2026-05-13 00:38:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=11
+2026-05-13 00:38:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=5
+2026-05-13 00:38:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=11
+2026-05-13 00:38:30 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/232-fontaine
+2026-05-13 00:38:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/154-fer-a-repasser
+2026-05-13 00:38:32 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/240-pack-gaming
+2026-05-13 00:38:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/245-capsule-de-cafe?page=2
+2026-05-13 00:38:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=8
+2026-05-13 00:38:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=3
+2026-05-13 00:38:38 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/91-accessoires-pc?page=3
+2026-05-13 00:38:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/47-machine-a-laver-tunisie?page=4
+2026-05-13 00:38:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/203-smartwatch?page=3
+2026-05-13 00:38:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=4
+2026-05-13 00:38:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=12
+2026-05-13 00:38:44 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/218-ecouteurs-sans-fil?page=9
+2026-05-13 00:38:45 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/150-centrifugeuse
+2026-05-13 00:38:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/58-pc-de-bureau?page=2
+2026-05-13 00:38:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=12
+2026-05-13 00:38:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=6
+2026-05-13 00:38:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=12
+2026-05-13 00:38:52 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/48-cuisiniere
+2026-05-13 00:38:53 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/154-fer-a-repasser?page=2
+2026-05-13 00:38:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/59-peripheriques-et-accesssoires
+2026-05-13 00:38:55 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/245-capsule-de-cafe?page=3
+2026-05-13 00:38:56 [scrapy.extensions.logstats] INFO: Crawled 2350 pages (at 47 pages/min), scraped 1876 items (at 1 items/min)
+2026-05-13 00:38:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=9
+2026-05-13 00:38:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=4
+2026-05-13 00:38:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/91-accessoires-pc?page=4
+2026-05-13 00:39:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/47-machine-a-laver-tunisie?page=5
+2026-05-13 00:39:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/203-smartwatch?page=4
+2026-05-13 00:39:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=5
+2026-05-13 00:39:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=13
+2026-05-13 00:39:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/170-composant-pc-gaming
+2026-05-13 00:39:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/129-preparation-culinaire-et-robot
+2026-05-13 00:39:07 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/58-pc-de-bureau?page=3
+2026-05-13 00:39:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=13
+2026-05-13 00:39:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=7
+2026-05-13 00:39:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=13
+2026-05-13 00:39:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv
+2026-05-13 00:39:14 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/181-casque-gamer
+2026-05-13 00:39:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/59-peripheriques-et-accesssoires?page=2
+2026-05-13 00:39:16 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/44-four-tunisie
+2026-05-13 00:39:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=10
+2026-05-13 00:39:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=5
+2026-05-13 00:39:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming
+2026-05-13 00:39:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/47-machine-a-laver-tunisie?page=6
+2026-05-13 00:39:23 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/203-smartwatch?page=5
+2026-05-13 00:39:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=6
+2026-05-13 00:39:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=14
+2026-05-13 00:39:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/170-composant-pc-gaming?page=2
+2026-05-13 00:39:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/129-preparation-culinaire-et-robot?page=2
+2026-05-13 00:39:29 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/88-top
+2026-05-13 00:39:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=14
+2026-05-13 00:39:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=8
+2026-05-13 00:39:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=14
+2026-05-13 00:39:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv?page=2
+2026-05-13 00:39:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/59-peripheriques-et-accesssoires?page=3
+2026-05-13 00:39:38 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/222-iphone
+2026-05-13 00:39:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=11
+2026-05-13 00:39:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=6
+2026-05-13 00:39:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming?page=2
+2026-05-13 00:39:43 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/47-machine-a-laver-tunisie?page=7
+2026-05-13 00:39:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=7
+2026-05-13 00:39:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=15
+2026-05-13 00:39:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/170-composant-pc-gaming?page=3
+2026-05-13 00:39:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/129-preparation-culinaire-et-robot?page=3
+2026-05-13 00:39:50 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/187-processeur
+2026-05-13 00:39:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=15
+2026-05-13 00:39:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=9
+2026-05-13 00:39:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=15
+2026-05-13 00:39:54 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/122-disque-dur-interne
+2026-05-13 00:39:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv?page=3
+2026-05-13 00:39:56 [scrapy.extensions.logstats] INFO: Crawled 2397 pages (at 47 pages/min), scraped 1876 items (at 0 items/min)
+2026-05-13 00:39:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/59-peripheriques-et-accesssoires?page=4
+2026-05-13 00:39:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/152-robot-de-cuisine
+2026-05-13 00:39:58 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/177-ventes-flash-et-meilleur-promo?page=12
+2026-05-13 00:39:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=7
+2026-05-13 00:40:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming?page=3
+2026-05-13 00:40:02 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/234-chaise-gaming
+2026-05-13 00:40:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/86-frontale
+2026-05-13 00:40:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=8
+2026-05-13 00:40:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=16
+2026-05-13 00:40:08 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/170-composant-pc-gaming?page=4
+2026-05-13 00:40:09 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/129-preparation-culinaire-et-robot?page=4
+2026-05-13 00:40:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=16
+2026-05-13 00:40:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=10
+2026-05-13 00:40:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=16
+2026-05-13 00:40:15 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/207-lampe
+2026-05-13 00:40:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv?page=4
+2026-05-13 00:40:18 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/59-peripheriques-et-accesssoires?page=5
+2026-05-13 00:40:19 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/152-robot-de-cuisine?page=2
+2026-05-13 00:40:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/160-lave-vaisselle
+2026-05-13 00:40:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=8
+2026-05-13 00:40:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming?page=4
+2026-05-13 00:40:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque
+2026-05-13 00:40:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/86-frontale?page=2
+2026-05-13 00:40:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=9
+2026-05-13 00:40:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=17
+2026-05-13 00:40:30 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/185-carte-graphique
+2026-05-13 00:40:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/241-bicyclette-electrique-et-velo
+2026-05-13 00:40:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/217-ecouteurs
+2026-05-13 00:40:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=17
+2026-05-13 00:40:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=11
+2026-05-13 00:40:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=17
+2026-05-13 00:40:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/214-soin-du-corps
+2026-05-13 00:40:38 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv?page=5
+2026-05-13 00:40:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/198-cable-et-chargeur
+2026-05-13 00:40:40 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/188-refroidissement
+2026-05-13 00:40:42 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/160-lave-vaisselle?page=2
+2026-05-13 00:40:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=9
+2026-05-13 00:40:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming?page=5
+2026-05-13 00:40:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=2
+2026-05-13 00:40:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/86-frontale?page=3
+2026-05-13 00:40:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=10
+2026-05-13 00:40:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=18
+2026-05-13 00:40:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/139-promos-climatiseurs-en-tunisie
+2026-05-13 00:40:52 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/241-bicyclette-electrique-et-velo?page=2
+2026-05-13 00:40:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/217-ecouteurs?page=2
+2026-05-13 00:40:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=18
+2026-05-13 00:40:56 [scrapy.extensions.logstats] INFO: Crawled 2443 pages (at 46 pages/min), scraped 1876 items (at 0 items/min)
+2026-05-13 00:40:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=12
+2026-05-13 00:40:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=18
+2026-05-13 00:40:59 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/214-soin-du-corps?page=2
+2026-05-13 00:41:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv?page=6
+2026-05-13 00:41:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/198-cable-et-chargeur?page=2
+2026-05-13 00:41:03 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/220-pack-pem
+2026-05-13 00:41:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/205-son
+2026-05-13 00:41:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=10
+2026-05-13 00:41:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming?page=6
+2026-05-13 00:41:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=3
+2026-05-13 00:41:11 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/86-frontale?page=4
+2026-05-13 00:41:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=11
+2026-05-13 00:41:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=19
+2026-05-13 00:41:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/139-promos-climatiseurs-en-tunisie?page=2
+2026-05-13 00:41:17 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/46-chauffe-bain-tunisie
+2026-05-13 00:41:17 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/217-ecouteurs?page=3
+2026-05-13 00:41:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=19
+2026-05-13 00:41:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=13
+2026-05-13 00:41:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=19
+2026-05-13 00:41:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/200-power-bank
+2026-05-13 00:41:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv?page=7
+2026-05-13 00:41:26 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/198-cable-et-chargeur?page=3
+2026-05-13 00:41:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits
+2026-05-13 00:41:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/205-son?page=2
+2026-05-13 00:41:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/57-pc-portable?page=11
+2026-05-13 00:41:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming?page=7
+2026-05-13 00:41:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=4
+2026-05-13 00:41:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/213-soin-des-cheveux
+2026-05-13 00:41:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=12
+2026-05-13 00:41:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=20
+2026-05-13 00:41:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/139-promos-climatiseurs-en-tunisie?page=3
+2026-05-13 00:41:38 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/201-support
+2026-05-13 00:41:39 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/236-batiment-et-quincaillerie
+2026-05-13 00:41:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=20
+2026-05-13 00:41:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=14
+2026-05-13 00:41:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=20
+2026-05-13 00:41:44 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/200-power-bank?page=2
+2026-05-13 00:41:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/172-tv?page=8
+2026-05-13 00:41:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/33-mixeur
+2026-05-13 00:41:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=2
+2026-05-13 00:41:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/205-son?page=3
+2026-05-13 00:41:49 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/57-pc-portable?page=12
+2026-05-13 00:41:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/169-peripherique-pc-gaming?page=8
+2026-05-13 00:41:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=5
+2026-05-13 00:41:53 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/165-console-de-jeux
+2026-05-13 00:41:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=13
+2026-05-13 00:41:56 [scrapy.extensions.logstats] INFO: Crawled 2489 pages (at 46 pages/min), scraped 1876 items (at 0 items/min)
+2026-05-13 00:41:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=21
+2026-05-13 00:41:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/139-promos-climatiseurs-en-tunisie?page=4
+2026-05-13 00:41:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/201-support?page=2
+2026-05-13 00:42:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/157-ventilateur
+2026-05-13 00:42:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=21
+2026-05-13 00:42:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=15
+2026-05-13 00:42:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=21
+2026-05-13 00:42:05 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/182-boitier
+2026-05-13 00:42:07 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/172-tv?page=9
+2026-05-13 00:42:08 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/33-mixeur?page=2
+2026-05-13 00:42:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=3
+2026-05-13 00:42:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/205-son?page=4
+2026-05-13 00:42:12 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/20-site-de-vente-en-ligne-univers-informatique
+2026-05-13 00:42:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=6
+2026-05-13 00:42:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/126-paninis-et-gouffre
+2026-05-13 00:42:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=14
+2026-05-13 00:42:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=22
+2026-05-13 00:42:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/139-promos-climatiseurs-en-tunisie?page=5
+2026-05-13 00:42:21 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/111-sac-a-dos
+2026-05-13 00:42:23 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/157-ventilateur?page=2
+2026-05-13 00:42:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=22
+2026-05-13 00:42:25 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/171-tv-audio-video-et-photo?page=16
+2026-05-13 00:42:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=22
+2026-05-13 00:42:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie
+2026-05-13 00:42:29 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/175-abonnement
+2026-05-13 00:42:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/148-cuiseur-en-tunisie
+2026-05-13 00:42:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=4
+2026-05-13 00:42:33 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/205-son?page=5
+2026-05-13 00:42:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm
+2026-05-13 00:42:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/151-aspirateurs
+2026-05-13 00:42:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=7
+2026-05-13 00:42:38 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/126-paninis-et-gouffre?page=2
+2026-05-13 00:42:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=15
+2026-05-13 00:42:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/28-petit-electro?page=23
+2026-05-13 00:42:42 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/139-promos-climatiseurs-en-tunisie?page=6
+2026-05-13 00:42:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/179-ecran-gaming
+2026-05-13 00:42:44 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/216-presse-agrumes-electrique-en-tunisie
+2026-05-13 00:42:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/163-accessoires-telephonies?page=23
+2026-05-13 00:42:46 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/233-webcam
+2026-05-13 00:42:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=23
+2026-05-13 00:42:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie?page=2
+2026-05-13 00:42:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/94-souris-et-tapis
+2026-05-13 00:42:52 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/148-cuiseur-en-tunisie?page=2
+2026-05-13 00:42:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=5
+2026-05-13 00:42:54 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/176-support-tv>: HTTP status code is not handled or not allowed
+2026-05-13 00:42:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=2
+2026-05-13 00:42:56 [scrapy.extensions.logstats] INFO: Crawled 2535 pages (at 46 pages/min), scraped 1876 items (at 0 items/min)
+2026-05-13 00:42:57 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/151-aspirateurs?page=2
+2026-05-13 00:42:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=8
+2026-05-13 00:42:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/224-objets-connectes
+2026-05-13 00:43:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=16
+2026-05-13 00:43:01 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/28-petit-electro?page=24
+2026-05-13 00:43:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie
+2026-05-13 00:43:04 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/179-ecran-gaming?page=2
+2026-05-13 00:43:05 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/211-bouilloire
+2026-05-13 00:43:06 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/163-accessoires-telephonies?page=24
+2026-05-13 00:43:08 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/102-composants-et-maintenance
+2026-05-13 00:43:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=24
+2026-05-13 00:43:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie?page=3
+2026-05-13 00:43:12 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/94-souris-et-tapis?page=2
+2026-05-13 00:43:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/35-cafetiere
+2026-05-13 00:43:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=6
+2026-05-13 00:43:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie
+2026-05-13 00:43:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=3
+2026-05-13 00:43:19 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/tapis-gaming/695-tapis-steelseries-qck-heavy.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:43:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=9
+2026-05-13 00:43:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/224-objets-connectes?page=2
+2026-05-13 00:43:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=17
+2026-05-13 00:43:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=2
+2026-05-13 00:43:27 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/4077-smartphone-samsung-galaxy-a04e-3go-64go-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:43:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=25
+2026-05-13 00:43:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie?page=4
+2026-05-13 00:43:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/35-cafetiere?page=2
+2026-05-13 00:43:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=7
+2026-05-13 00:43:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=2
+2026-05-13 00:43:38 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=4
+2026-05-13 00:43:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=10
+2026-05-13 00:43:42 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/224-objets-connectes?page=3
+2026-05-13 00:43:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=18
+2026-05-13 00:43:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=3
+2026-05-13 00:43:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/3051-xiaomi-redmi-10-4go-64go.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:43:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=26
+2026-05-13 00:43:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie?page=5
+2026-05-13 00:43:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/35-cafetiere?page=3
+2026-05-13 00:43:56 [scrapy.extensions.logstats] INFO: Crawled 2581 pages (at 46 pages/min), scraped 1885 items (at 9 items/min)
+2026-05-13 00:43:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=8
+2026-05-13 00:43:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=3
+2026-05-13 00:43:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=5
+2026-05-13 00:44:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=11
+2026-05-13 00:44:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=19
+2026-05-13 00:44:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=4
+2026-05-13 00:44:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=27
+2026-05-13 00:44:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie?page=6
+2026-05-13 00:44:18 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/35-cafetiere?page=4
+2026-05-13 00:44:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=9
+2026-05-13 00:44:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=4
+2026-05-13 00:44:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=6
+2026-05-13 00:44:24 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=12
+2026-05-13 00:44:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=20
+2026-05-13 00:44:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=5
+2026-05-13 00:44:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=28
+2026-05-13 00:44:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie?page=7
+2026-05-13 00:44:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=10
+2026-05-13 00:44:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=5
+2026-05-13 00:44:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=7
+2026-05-13 00:44:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=13
+2026-05-13 00:44:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=21
+2026-05-13 00:44:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=6
+2026-05-13 00:44:56 [scrapy.extensions.logstats] INFO: Crawled 2618 pages (at 37 pages/min), scraped 1899 items (at 14 items/min)
+2026-05-13 00:44:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=29
+2026-05-13 00:44:58 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/125-petits-appareils-de-cuisson-tunisie?page=8
+2026-05-13 00:45:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=11
+2026-05-13 00:45:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=6
+2026-05-13 00:45:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=8
+2026-05-13 00:45:07 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/199-ecouteur-et-casque?page=14
+2026-05-13 00:45:08 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2686-powerbank-20000mah-remax-suchy-series-rpp-108-.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:45:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=22
+2026-05-13 00:45:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=7
+2026-05-13 00:45:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=30
+2026-05-13 00:45:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=12
+2026-05-13 00:45:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=7
+2026-05-13 00:45:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=9
+2026-05-13 00:45:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=23
+2026-05-13 00:45:33 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3439-xiaomi-redmi-10c-4go-128go-gris.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:45:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=8
+2026-05-13 00:45:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=31
+2026-05-13 00:45:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=13
+2026-05-13 00:45:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=8
+2026-05-13 00:45:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=10
+2026-05-13 00:45:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=24
+2026-05-13 00:45:56 [scrapy.extensions.logstats] INFO: Crawled 2654 pages (at 36 pages/min), scraped 1914 items (at 15 items/min)
+2026-05-13 00:45:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=9
+2026-05-13 00:46:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=32
+2026-05-13 00:46:04 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1838-samsung-galaxy-note-20-ultra-tunisie-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:46:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=14
+2026-05-13 00:46:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=9
+2026-05-13 00:46:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=11
+2026-05-13 00:46:09 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/4513-.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:46:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=25
+2026-05-13 00:46:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=10
+2026-05-13 00:46:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=33
+2026-05-13 00:46:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=15
+2026-05-13 00:46:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=10
+2026-05-13 00:46:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=12
+2026-05-13 00:46:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=26
+2026-05-13 00:46:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=11
+2026-05-13 00:46:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=34
+2026-05-13 00:46:44 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3473-smartphone-oppo-a16k-4go-64go-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:46:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=16
+2026-05-13 00:46:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=11
+2026-05-13 00:46:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=13
+2026-05-13 00:46:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=27
+2026-05-13 00:46:56 [scrapy.extensions.logstats] INFO: Crawled 2692 pages (at 38 pages/min), scraped 1931 items (at 17 items/min)
+2026-05-13 00:47:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=12
+2026-05-13 00:47:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=35
+2026-05-13 00:47:05 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/2825-xiaomi-redmi-9t-4-64-orange-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:47:06 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-maison/3436-congelateur-whirlpool-whm21102-220l.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:47:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=17
+2026-05-13 00:47:09 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/56-tablettes-en-tunisie?page=12
+2026-05-13 00:47:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=14
+2026-05-13 00:47:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=28
+2026-05-13 00:47:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=13
+2026-05-13 00:47:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=36
+2026-05-13 00:47:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=18
+2026-05-13 00:47:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=15
+2026-05-13 00:47:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=29
+2026-05-13 00:47:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=14
+2026-05-13 00:47:45 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=37
+2026-05-13 00:47:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3193-smartphone-a22-iku.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:47:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=19
+2026-05-13 00:47:52 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=16
+2026-05-13 00:47:56 [scrapy.extensions.logstats] INFO: Crawled 2730 pages (at 38 pages/min), scraped 1951 items (at 20 items/min)
+2026-05-13 00:47:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=30
+2026-05-13 00:48:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=15
+2026-05-13 00:48:05 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/radio/470-baffle-bluetooth-remax-rb-m26-radio-fm-multifonctionnel.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:48:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=38
+2026-05-13 00:48:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=20
+2026-05-13 00:48:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=17
+2026-05-13 00:48:19 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cable-et-chargeur/311-cable-usb-remax-rc-041m.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:48:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=31
+2026-05-13 00:48:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=16
+2026-05-13 00:48:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/29-gros-electro?page=39
+2026-05-13 00:48:30 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/4515-.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:48:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=21
+2026-05-13 00:48:35 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/24-smartphone-en-tunisie-gsm?page=18
+2026-05-13 00:48:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=32
+2026-05-13 00:48:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=17
+2026-05-13 00:48:49 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/29-gros-electro?page=40
+2026-05-13 00:48:56 [scrapy.extensions.logstats] INFO: Crawled 2766 pages (at 36 pages/min), scraped 1970 items (at 19 items/min)
+2026-05-13 00:48:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=22
+2026-05-13 00:49:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=33
+2026-05-13 00:49:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=18
+2026-05-13 00:49:13 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/2892-baffle-jbl-go-3-blue-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:49:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=23
+2026-05-13 00:49:21 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteur-et-casque/463-ecouteur-bluetooth-remax-rb-t20.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:49:22 [tunisiatech] INFO: QUEUED (no ref) | Liste des produits de la marque Orient | 345.000 TND
+2026-05-13 00:49:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=34
+2026-05-13 00:49:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=19
+2026-05-13 00:49:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=24
+2026-05-13 00:49:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=35
+2026-05-13 00:49:49 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3965-smartphone-xiaomi-redmi-10-2022-6go-128go-gris.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:49:52 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/1085-jbl-clip-3-rouge-origine-en-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:49:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=20
+2026-05-13 00:49:56 [scrapy.extensions.logstats] INFO: Crawled 2794 pages (at 28 pages/min), scraped 1986 items (at 16 items/min)
+2026-05-13 00:49:57 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/381-baffle-bluetooth-remax-rb-m15-en-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:50:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=25
+2026-05-13 00:50:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=36
+2026-05-13 00:50:10 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/1083-baffle-jbl-go-2-cyan.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:50:12 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=21
+2026-05-13 00:50:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=26
+2026-05-13 00:50:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=37
+2026-05-13 00:50:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=22
+2026-05-13 00:50:36 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/etuis-et-coques/204-alcantara-cover-s9-s9-etuis-et-coquestunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:50:37 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3883-smartphone-infinix-hot-20i-4go-64go.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:50:41 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3593-xiaomi-redmi-10-2022-4go-64go.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:50:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=27
+2026-05-13 00:50:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=38
+2026-05-13 00:50:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=23
+2026-05-13 00:50:56 [scrapy.extensions.logstats] INFO: Crawled 2829 pages (at 35 pages/min), scraped 2007 items (at 21 items/min)
+2026-05-13 00:51:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=28
+2026-05-13 00:51:07 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2688-power-bank-remax-10000mah-bodi-series-rpp-96-blanc-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:51:08 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2687-power-bank-20000mah-remax-suchy-series-rpp-108-blanc-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:51:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=39
+2026-05-13 00:51:15 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=24
+2026-05-13 00:51:17 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/promos-climatiseurs-en-tunisie/2849-climatiseur-gree-inverter-24000-btu-chaud-et-froid-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:51:20 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3987-xiaomi-redmi-10c-4go-128go-vert.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:51:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=29
+2026-05-13 00:51:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=40
+2026-05-13 00:51:34 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3394-cable-remax-rc-160m.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:51:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=25
+2026-05-13 00:51:40 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartwatch/447-samsung-galaxy-watch-goldrose.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:51:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=30
+2026-05-13 00:51:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=41
+2026-05-13 00:51:56 [scrapy.extensions.logstats] INFO: Crawled 2862 pages (at 33 pages/min), scraped 2026 items (at 19 items/min)
+2026-05-13 00:51:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=26
+2026-05-13 00:52:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=31
+2026-05-13 00:52:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=42
+2026-05-13 00:52:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=27
+2026-05-13 00:52:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=32
+2026-05-13 00:52:30 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/2599-enceinte-sans-fil-bluetooth-bose-500-luxe-silver-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:52:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=43
+2026-05-13 00:52:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=28
+2026-05-13 00:52:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=33
+2026-05-13 00:52:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=44
+2026-05-13 00:52:56 [scrapy.extensions.logstats] INFO: Crawled 2893 pages (at 31 pages/min), scraped 2047 items (at 21 items/min)
+2026-05-13 00:52:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=29
+2026-05-13 00:52:58 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3573-smartphone-samsung-galaxy-a73-8go-128go.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:53:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=34
+2026-05-13 00:53:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=45
+2026-05-13 00:53:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=30
+2026-05-13 00:53:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=35
+2026-05-13 00:53:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=46
+2026-05-13 00:53:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=31
+2026-05-13 00:53:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=36
+2026-05-13 00:53:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=47
+2026-05-13 00:53:56 [scrapy.extensions.logstats] INFO: Crawled 2922 pages (at 29 pages/min), scraped 2065 items (at 18 items/min)
+2026-05-13 00:53:56 [tunisiatech] INFO: QUEUED (no ref) | Coque Guess 4G HARD CASE marron IP19 | 55.500 TND
+2026-05-13 00:54:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=32
+2026-05-13 00:54:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=37
+2026-05-13 00:54:08 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/frontale/1283-machine-a-laver-automatique-orient-7-kg-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:54:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=48
+2026-05-13 00:54:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=33
+2026-05-13 00:54:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=38
+2026-05-13 00:54:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=49
+2026-05-13 00:54:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=34
+2026-05-13 00:54:45 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/2424-apple-adaptateur-lightning-av-numerique-blanc-md826zma.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:54:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=39
+2026-05-13 00:54:51 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3066-remax-power-bank-radio-series-20000mah-rpp-102.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:54:56 [scrapy.extensions.logstats] INFO: Crawled 2954 pages (at 32 pages/min), scraped 2087 items (at 22 items/min)
+2026-05-13 00:54:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=50
+2026-05-13 00:55:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=35
+2026-05-13 00:55:09 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/375-remax-speaker-bluetooth-rb-m16-baffle-en-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:55:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=40
+2026-05-13 00:55:15 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1836-samsung-galaxy-note-20-vert-militaire.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:55:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=51
+2026-05-13 00:55:23 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/677-baffle-bluetooth-m11-remax.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:55:24 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cafetiere/1150-cafetiere-filtre-domoclip-dom163.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:55:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=36
+2026-05-13 00:55:35 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=41
+2026-05-13 00:55:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=52
+2026-05-13 00:55:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=37
+2026-05-13 00:55:56 [scrapy.extensions.logstats] INFO: Crawled 2982 pages (at 28 pages/min), scraped 2103 items (at 16 items/min)
+2026-05-13 00:55:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/73-nouveaux-produits?page=42
+2026-05-13 00:56:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=53
+2026-05-13 00:56:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=38
+2026-05-13 00:56:16 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3472-smartphone-oppo-a16k-3go-32go-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:56:17 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/73-nouveaux-produits?page=43
+2026-05-13 00:56:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=54
+2026-05-13 00:56:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=39
+2026-05-13 00:56:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=55
+2026-05-13 00:56:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=40
+2026-05-13 00:56:56 [scrapy.extensions.logstats] INFO: Crawled 3011 pages (at 29 pages/min), scraped 2123 items (at 20 items/min)
+2026-05-13 00:57:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=56
+2026-05-13 00:57:12 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=41
+2026-05-13 00:57:19 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3398-cable-remax-rc-161a.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:57:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=57
+2026-05-13 00:57:29 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/lampe/334-lampe-remax-led.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:57:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=42
+2026-05-13 00:57:40 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/sac-a-dos/887-sac-a-dos-pour-pc-portable.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:57:47 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3438-xiaomi-redmi-10c-4go-64go.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:57:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=58
+2026-05-13 00:57:52 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/disque-dur-externe/556-disque-dur-externe-adata-hv620s-2to-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:57:56 [scrapy.extensions.logstats] INFO: Crawled 3046 pages (at 35 pages/min), scraped 2148 items (at 25 items/min)
+2026-05-13 00:57:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=43
+2026-05-13 00:58:16 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=59
+2026-05-13 00:58:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=44
+2026-05-13 00:58:33 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/374-speaker-desktop-remax-rb-m12-9-remax-baffletunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:58:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=60
+2026-05-13 00:58:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=45
+2026-05-13 00:58:54 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteur-et-casque/489-ecouteur-remax-rm-502.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:58:56 [scrapy.extensions.logstats] INFO: Crawled 3075 pages (at 29 pages/min), scraped 2170 items (at 22 items/min)
+2026-05-13 00:58:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=61
+2026-05-13 00:59:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=46
+2026-05-13 00:59:16 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/clavier-gaming/2145-clavier-mecanique-t-dagger-bali-t-tgk311-rainbow-brown-switch.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:59:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=62
+2026-05-13 00:59:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=47
+2026-05-13 00:59:27 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/4479-.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:59:41 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=63
+2026-05-13 00:59:47 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=48
+2026-05-13 00:59:56 [scrapy.extensions.logstats] INFO: Crawled 3097 pages (at 22 pages/min), scraped 2184 items (at 14 items/min)
+2026-05-13 00:59:57 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/2779-adaptateur-power-usb-c-apple-20-w.html>: HTTP status code is not handled or not allowed
+2026-05-13 00:59:58 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3828-smartphone-evertek-m20s-pro.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:00:01 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=64
+2026-05-13 01:00:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=49
+2026-05-13 01:00:12 [tunisiatech] INFO: QUEUED (no ref) | Hachoir | 79.000 TND
+2026-05-13 01:00:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/promotions?page=65
+2026-05-13 01:00:24 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3405-cable-remax-pd-b47i.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:00:30 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=50
+2026-05-13 01:00:42 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/382-bluetooth-speaker-remax-rb-m13-baffletunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:00:44 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/tapis-gaming/982--tapis-gaming-redragon-kunlun-l-p006a.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:00:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=51
+2026-05-13 01:00:56 [scrapy.extensions.logstats] INFO: Crawled 3129 pages (at 32 pages/min), scraped 2206 items (at 22 items/min)
+2026-05-13 01:01:09 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3470-smartphone-oppo-a16k-3go-32go-bleu.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:01:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=52
+2026-05-13 01:01:13 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteurs/598-ecouteur-remax-rm-569.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:01:26 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3806-smartphone-evertek-m20-pro.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:01:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=53
+2026-05-13 01:01:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=54
+2026-05-13 01:01:56 [scrapy.extensions.logstats] INFO: Crawled 3163 pages (at 34 pages/min), scraped 2234 items (at 28 items/min)
+2026-05-13 01:01:56 [tunisiatech] INFO: QUEUED (no ref) | Presse-agrumes Centrifugeuse presse fruit éle | 259.000 TND
+2026-05-13 01:02:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=55
+2026-05-13 01:02:21 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2657-power-bank-20000mah-remax-rpp-166-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:02:26 [tunisiatech] INFO: QUEUED (no ref) | Liste des produits de la marque Xiaomi | 1899.000 TND
+2026-05-13 01:02:27 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/securite/57-anti-lost-anti-losttunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:02:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=56
+2026-05-13 01:02:47 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3194-smartphone-a10-iku.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:02:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=57
+2026-05-13 01:02:56 [scrapy.extensions.logstats] INFO: Crawled 3198 pages (at 35 pages/min), scraped 2263 items (at 29 items/min)
+2026-05-13 01:03:17 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=58
+2026-05-13 01:03:25 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/4502-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:03:30 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/support/608-remax-metal-holder-rm-c30.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:03:34 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2659-power-bank-30000mah-remax-lango-rpp-167-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:03:37 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/3966-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:03:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=59
+2026-05-13 01:03:54 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteurs/2704-ecouteur-avec-micro-celebrat-g12-noir-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:03:56 [scrapy.extensions.logstats] INFO: Crawled 3227 pages (at 29 pages/min), scraped 2284 items (at 21 items/min)
+2026-05-13 01:03:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=60
+2026-05-13 01:04:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=61
+2026-05-13 01:04:36 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/sac-pc/847-1199-sac-pc-portable-remax-carry-306-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:04:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=62
+2026-05-13 01:04:56 [scrapy.extensions.logstats] INFO: Crawled 3257 pages (at 30 pages/min), scraped 2311 items (at 27 items/min)
+2026-05-13 01:04:58 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/4472-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:05:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=63
+2026-05-13 01:05:13 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/1063-baffle-jbl-go-2-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:05:20 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=64
+2026-05-13 01:05:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=65
+2026-05-13 01:05:46 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/2419-apple-usb-c-charge-cable-2m-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:05:56 [scrapy.extensions.logstats] INFO: Crawled 3289 pages (at 32 pages/min), scraped 2336 items (at 25 items/min)
+2026-05-13 01:06:00 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=66
+2026-05-13 01:06:02 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3922-smartphone-samsung-galaxy-a04e-3go-32go-cuivre.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:06:17 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3403-cable-remax-pd-b47m.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:06:22 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=67
+2026-05-13 01:06:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=68
+2026-05-13 01:06:56 [scrapy.extensions.logstats] INFO: Crawled 3313 pages (at 24 pages/min), scraped 2356 items (at 20 items/min)
+2026-05-13 01:07:01 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2693-power-bank-remax-tangee-series-wireless-10000mah-rpp-105-green-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:07:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=69
+2026-05-13 01:07:24 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/iphone/2217-apple-iphone-se-2020-64go-red.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:07:26 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=70
+2026-05-13 01:07:36 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3595-xiaomi-redmi-10a-2go-32go.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:07:42 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2689-power-bank-remax-10000mah-bodi-series-rpp-96.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:07:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=71
+2026-05-13 01:07:56 [scrapy.extensions.logstats] INFO: Crawled 3342 pages (at 29 pages/min), scraped 2378 items (at 22 items/min)
+2026-05-13 01:08:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=72
+2026-05-13 01:08:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=73
+2026-05-13 01:08:49 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=74
+2026-05-13 01:08:56 [scrapy.extensions.logstats] INFO: Crawled 3369 pages (at 27 pages/min), scraped 2402 items (at 24 items/min)
+2026-05-13 01:09:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=75
+2026-05-13 01:09:10 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/tv/1758-televiseur-telefunken-43-e2-led-full-hd.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:09:23 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1959-smartphone-nokia-24-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:09:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=76
+2026-05-13 01:09:52 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3966-smartphone-xiaomi-redmi-10-2022-6go-128go-bleu.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:09:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/25-smartphones-tunisie?page=77
+2026-05-13 01:09:56 [scrapy.extensions.logstats] INFO: Crawled 3397 pages (at 28 pages/min), scraped 2424 items (at 22 items/min)
+2026-05-13 01:10:15 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/25-smartphones-tunisie?page=78
+2026-05-13 01:10:25 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/1776-baffle-jbl-go-2-vert.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:10:43 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/site-de-vente-en-ligne-univers-informatique/2223-apple-ipad-102-32go-wifi-7eme-generation-space-grey.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:10:48 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/4021-baffle-jbl-go-3-rouge.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:10:56 [scrapy.extensions.logstats] INFO: Crawled 3424 pages (at 27 pages/min), scraped 2447 items (at 23 items/min)
+2026-05-13 01:11:48 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3417-ecouteur-remax-rm-202.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:11:53 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/669-remax-sd-02-action-camera.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:11:56 [scrapy.extensions.logstats] INFO: Crawled 3456 pages (at 32 pages/min), scraped 2477 items (at 30 items/min)
+2026-05-13 01:12:12 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/676-baffle-bluetooth-sans-fil-rb-m18-remax.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:12:21 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/3965-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:12:22 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/paninis-et-gouffre/797-appareil-a-cake-pops-domoclip-dop131.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:12:29 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/5013-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:12:53 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3406-cable-lesu-remax-rc-050m.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:12:56 [scrapy.extensions.logstats] INFO: Crawled 3482 pages (at 26 pages/min), scraped 2498 items (at 21 items/min)
+2026-05-13 01:13:30 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/2893-baffle-jbl-go-3-pink-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:13:38 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/mixeur/912-mixeur-blender-domoclip-dom216.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:13:45 [tunisiatech] INFO: QUEUED (no ref) | Promotions Samsung  en Tunisie | 1549.000 TND
+2026-05-13 01:13:56 [scrapy.extensions.logstats] INFO: Crawled 3514 pages (at 32 pages/min), scraped 2528 items (at 30 items/min)
+2026-05-13 01:14:36 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3967-smartphone-xiaomi-redmi-10-2022-6go-128go-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:14:52 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3986-xiaomi-redmi-10c-4go-128go-bleu.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:14:54 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/4078-smartphone-samsung-galaxy-a04e-3go-64go-cuivre.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:14:56 [scrapy.extensions.logstats] INFO: Crawled 3543 pages (at 29 pages/min), scraped 2553 items (at 25 items/min)
+2026-05-13 01:15:16 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/support/330-remax-car-holder-rm-c10.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:15:43 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3977-smartphone-infinix-hot-20i-4go-128go-bleu.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:15:56 [scrapy.extensions.logstats] INFO: Crawled 3568 pages (at 25 pages/min), scraped 2577 items (at 24 items/min)
+2026-05-13 01:15:59 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/1080-baffle-jbl-go-2-rouge.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:16:12 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/4485-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:16:23 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2692-power-bank-remax-tangee-series-wireless-10000mah-rpp-105-noir-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:16:56 [scrapy.extensions.logstats] INFO: Crawled 3596 pages (at 28 pages/min), scraped 2601 items (at 24 items/min)
+2026-05-13 01:17:03 [tunisiatech] INFO: QUEUED (no ref) | Aspirateur Mi Robot Vacuum Mop 2 Xiaomi | 1170.000 TND
+2026-05-13 01:17:08 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteurs/2709-ecouteur-remax-rw-105-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:17:24 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1835-samsung-galaxy-note-20-bronze.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:17:26 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3893-smartphone-samsung-galaxy-a04e-3go-32go-bleu.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:17:43 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3805-smartphone-evertek-m20s-mini.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:17:45 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cable-et-chargeur/318-cable-usb-remax-rc-080a.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:17:56 [scrapy.extensions.logstats] INFO: Crawled 3623 pages (at 27 pages/min), scraped 2622 items (at 21 items/min)
+2026-05-13 01:18:21 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/sports-et-loisirs/1173-accessoires-de-velo-trousse-cadre-en-haut-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:18:48 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1960-nokia-24-tunisie-purple.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:18:50 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2043-power-bank-xiaomi-redmi-10000mah-noir-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:18:56 [scrapy.extensions.logstats] INFO: Crawled 3656 pages (at 33 pages/min), scraped 2653 items (at 31 items/min)
+2026-05-13 01:19:00 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/1068-baffle-jbl-go-2-champagne-origine-en-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:19:13 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3391-cable-remax-rc-124m.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:19:37 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/3594-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:19:56 [scrapy.extensions.logstats] INFO: Crawled 3684 pages (at 28 pages/min), scraped 2678 items (at 25 items/min)
+2026-05-13 01:20:56 [scrapy.extensions.logstats] INFO: Crawled 3720 pages (at 36 pages/min), scraped 2713 items (at 35 items/min)
+2026-05-13 01:21:04 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3386-cable-remax-rc-161m.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:21:27 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cable-et-chargeur/312-cable-usb-remax-rc081i.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:21:31 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cable-et-chargeur/320-cable-usb-remax-rc-062m.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:21:56 [scrapy.extensions.logstats] INFO: Crawled 3744 pages (at 24 pages/min), scraped 2734 items (at 21 items/min)
+2026-05-13 01:22:00 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteurs/595-ecouteur-remax-575-pro-en-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:22:27 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cable-et-chargeur/307-cable-usb-remax-rc-050a.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:22:41 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteurs-sans-fil/2697-ecouteurs-intra-auriculaires-sans-fil-celebrat-a20-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:22:56 [scrapy.extensions.logstats] INFO: Crawled 3779 pages (at 35 pages/min), scraped 2766 items (at 32 items/min)
+2026-05-13 01:22:57 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3248-iphone-13-midnight-apple.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:23:19 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/power-bank/2691-power-bank-remax-tangee-series-wireless-10000mah-rpp-105-rouge.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:23:21 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1826-samsung-galaxy-note-20-tunisie-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:23:30 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteur-et-casque/541-ecouteur-remax-rb-s18-sans-fil-bluetooth-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:23:34 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3509-smartphone-oppo-a16-4go-64go.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:23:45 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/mixeur/909-mixeur-blender-domoclip-dop163.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:23:56 [scrapy.extensions.logstats] INFO: Crawled 3813 pages (at 34 pages/min), scraped 2794 items (at 28 items/min)
+2026-05-13 01:23:57 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3143-evertek-m20s-1go-16go.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:24:23 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3062-speaker-remax-desktop-bluetooth-rb-m23.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:24:32 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3976-smartphone-infinix-hot-20i-4go-128go-vert.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:24:38 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/refrigerateur-tunisie/1614-congelateur-coffre-brandt-bfk615msw.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:24:41 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3923-smartphone-samsung-galaxy-a04e-3go-32go-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:24:42 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/sports-et-loisirs/1172-accessoires-de-velo-porte-portable-jinrex-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:24:56 [scrapy.extensions.logstats] INFO: Crawled 3845 pages (at 32 pages/min), scraped 2820 items (at 26 items/min)
+2026-05-13 01:25:42 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3594--xiaomi-redmi-10-2022-4go-128go.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:25:55 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3978-smartphone-infinix-hot-20i-4go-128go-noir.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:25:56 [scrapy.extensions.logstats] INFO: Crawled 3873 pages (at 28 pages/min), scraped 2846 items (at 26 items/min)
+2026-05-13 01:26:27 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cable-et-chargeur/321-cable-usb-remax-rc-080i.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:26:56 [scrapy.extensions.logstats] INFO: Crawled 3901 pages (at 28 pages/min), scraped 2873 items (at 27 items/min)
+2026-05-13 01:27:24 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/4516-.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:27:31 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/cable-et-chargeur/322-cable-usb-remax-rc-073th.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:27:33 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/4022-baffle-jbl-go-3-vert.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:27:37 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/clavier-gaming/2144-clavier-mecanique-t-dagger-bali-tgk311-rainbow-red-switch.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:27:53 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3070-xiaomi-redmi-10-4go-128go.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:27:56 [scrapy.extensions.logstats] INFO: Crawled 3932 pages (at 31 pages/min), scraped 2899 items (at 26 items/min)
+2026-05-13 01:28:12 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/4023-baffle-jbl-go-3-squad.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:28:56 [scrapy.extensions.logstats] INFO: Crawled 3963 pages (at 31 pages/min), scraped 2929 items (at 30 items/min)
+2026-05-13 01:29:00 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/accessoires-telephonies/3395-cable-remax-rc-160i.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:29:03 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/refrigerateur-tunisie/2294-refrigerateur-samsung-rt50-twin-cooling-plus-no-frost-silver-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:29:37 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/presse-agrumes-electrique-en-tunisie/1193-presse-agrumes-electrique-domoclip-dod-132-rn.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:29:56 [scrapy.extensions.logstats] INFO: Crawled 3992 pages (at 29 pages/min), scraped 2955 items (at 26 items/min)
+2026-05-13 01:30:53 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3141-evertek-m20-plus-pro.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:30:56 [scrapy.extensions.logstats] INFO: Crawled 4015 pages (at 23 pages/min), scraped 2977 items (at 22 items/min)
+2026-05-13 01:31:11 [tunisiatech] INFO: QUEUED (no ref) | Liste des produits de la marque ADATA | 25.000 TND
+2026-05-13 01:31:56 [scrapy.extensions.logstats] INFO: Crawled 4047 pages (at 32 pages/min), scraped 3009 items (at 32 items/min)
+2026-05-13 01:31:56 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1837-samsung-galaxy-note-20-ultra-tunisie-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:32:03 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/ecouteurs-sans-fil/2701-ecouteurs-sans-fil-remax-tws-21-blanc.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:32:51 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/377-remax-rb-m9-speaker-baffletunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:32:56 [scrapy.extensions.logstats] INFO: Crawled 4079 pages (at 32 pages/min), scraped 3038 items (at 29 items/min)
+2026-05-13 01:32:56 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/sac-a-dos/848-sac-pc-portable-remax-double-606.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:33:06 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3191-smartphone-a35-iku.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:33:23 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/2809-samsung-galaxy-a12-128go-noir-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:33:40 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/son/2894-baffle-jbl-go-3-noir-prix-tunisie.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:33:56 [scrapy.extensions.logstats] INFO: Crawled 4103 pages (at 24 pages/min), scraped 3058 items (at 20 items/min)
+2026-05-13 01:34:15 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/4079-smartphone-samsung-galaxy-a04e-3go-64go-bleu.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:34:25 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/smartphones-tunisie/1839-samsung-galaxy-note-20-ultra-tunisie-camel.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:34:56 [scrapy.extensions.logstats] INFO: Crawled 4126 pages (at 23 pages/min), scraped 3079 items (at 21 items/min)
+2026-05-13 01:35:55 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <404 https://tunisiatech.tn/univers-telephonie/3975-smartphone-infinix-hot-20i-4go-128go-gold.html>: HTTP status code is not handled or not allowed
+2026-05-13 01:35:56 [scrapy.extensions.logstats] INFO: Crawled 4158 pages (at 32 pages/min), scraped 3110 items (at 31 items/min)
+2026-05-13 01:36:29 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/brand/221-zte
+2026-05-13 01:36:30 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/194-zebra
+2026-05-13 01:36:31 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/brand/196-yadea
+2026-05-13 01:36:33 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/130-xtrike-me
+2026-05-13 01:36:34 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/176-xo-store
+2026-05-13 01:36:35 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/brand/244-xinji
+2026-05-13 01:36:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi
+2026-05-13 01:36:38 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/246-x-tigi
+2026-05-13 01:36:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/180-whirlpool
+2026-05-13 01:36:40 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/261-westinghouse
+2026-05-13 01:36:41 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/166-wahl
+2026-05-13 01:36:42 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/185-vivo
+2026-05-13 01:36:44 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/brand/52-vega
+2026-05-13 01:36:45 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/129-urrage-hama
+2026-05-13 01:36:46 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/255-uniwa
+2026-05-13 01:36:47 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/197-under-armour
+2026-05-13 01:36:48 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/203-ufesa
+2026-05-13 01:36:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/240-trust
+2026-05-13 01:36:50 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/264-tristar
+2026-05-13 01:36:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/187-trinx
+2026-05-13 01:36:52 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/155-toshiba
+2026-05-13 01:36:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/176-xo-store?page=2
+2026-05-13 01:36:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/87-topmatic
+2026-05-13 01:36:56 [scrapy.extensions.logstats] INFO: Crawled 4207 pages (at 49 pages/min), scraped 3136 items (at 26 items/min)
+2026-05-13 01:36:57 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=2
+2026-05-13 01:36:58 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/143-titan
+2026-05-13 01:36:59 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/brand/180-whirlpool?page=2
+2026-05-13 01:37:01 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/231-test-brand
+2026-05-13 01:37:03 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/141-telefunken
+2026-05-13 01:37:04 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/185-vivo?page=2
+2026-05-13 01:37:05 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/99-tefal
+2026-05-13 01:37:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/90-tecno
+2026-05-13 01:37:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/258-techwood
+2026-05-13 01:37:08 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/brand/73-team-group
+2026-05-13 01:37:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/111-tcl-tunisie
+2026-05-13 01:37:11 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/240-trust?page=2
+2026-05-13 01:37:12 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/251-taurus
+2026-05-13 01:37:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/187-trinx?page=2
+2026-05-13 01:37:15 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/brand/157-t-dagger
+2026-05-13 01:37:16 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/176-xo-store?page=3
+2026-05-13 01:37:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/87-topmatic?page=2
+2026-05-13 01:37:19 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=3
+2026-05-13 01:37:20 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/127-swissline
+2026-05-13 01:37:21 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/223-swift
+2026-05-13 01:37:23 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/227-sunelan
+2026-05-13 01:37:24 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/brand/141-telefunken?page=2
+2026-05-13 01:37:25 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/185-vivo?page=3
+2026-05-13 01:37:26 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/brand/99-tefal?page=2
+2026-05-13 01:37:28 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/90-tecno?page=2
+2026-05-13 01:37:29 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/258-techwood?page=2
+2026-05-13 01:37:30 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/72-steelseries
+2026-05-13 01:37:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/111-tcl-tunisie?page=2
+2026-05-13 01:37:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/240-trust?page=3
+2026-05-13 01:37:34 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/218-sparkway
+2026-05-13 01:37:35 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/187-trinx?page=3
+2026-05-13 01:37:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/51-smartec
+2026-05-13 01:37:37 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/102-sinbo
+2026-05-13 01:37:38 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/brand/87-topmatic?page=3
+2026-05-13 01:37:40 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=4
+2026-05-13 01:37:41 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/189-sharp
+2026-05-13 01:37:42 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/brand/70-sharkoon
+2026-05-13 01:37:44 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/250-schneider
+2026-05-13 01:37:45 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/204-sanya
+2026-05-13 01:37:46 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/brand/185-vivo?page=4
+2026-05-13 01:37:48 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/260-sanitas
+2026-05-13 01:37:50 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/90-tecno?page=3
+2026-05-13 01:37:50 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/brand/258-techwood?page=3
+2026-05-13 01:37:52 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/59-sandisk
+2026-05-13 01:37:53 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/brand/111-tcl-tunisie?page=3
+2026-05-13 01:37:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/240-trust?page=4
+2026-05-13 01:37:56 [scrapy.extensions.logstats] INFO: Crawled 4253 pages (at 46 pages/min), scraped 3136 items (at 0 items/min)
+2026-05-13 01:37:56 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung
+2026-05-13 01:37:57 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/113-saba
+2026-05-13 01:37:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/51-smartec?page=2
+2026-05-13 01:37:59 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/153-seg
+2026-05-13 01:38:00 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/brand/163-russell-hobbs
+2026-05-13 01:38:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=5
+2026-05-13 01:38:03 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/124-royalty-line
+2026-05-13 01:38:05 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/79-romoss
+2026-05-13 01:38:06 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/208-rezmay
+2026-05-13 01:38:07 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/brand/165-remington
+2026-05-13 01:38:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/50-remax
+2026-05-13 01:38:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/98-redragon
+2026-05-13 01:38:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/174-realme
+2026-05-13 01:38:31 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/brand/90-tecno?page=4
+2026-05-13 01:38:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/235-raf
+2026-05-13 01:38:33 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/230-radiola
+2026-05-13 01:38:35 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/240-trust?page=5
+2026-05-13 01:38:38 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/263-polarbox
+2026-05-13 01:38:38 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=2
+2026-05-13 01:38:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/51-smartec?page=3
+2026-05-13 01:38:41 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/brand/153-seg?page=2
+2026-05-13 01:38:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/171-philips
+2026-05-13 01:38:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=6
+2026-05-13 01:38:49 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/80-palit
+2026-05-13 01:38:50 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/207-oukitel
+2026-05-13 01:38:58 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/brand/237-oteeto
+2026-05-13 01:38:58 [scrapy.extensions.logstats] INFO: Crawled 4279 pages (at 26 pages/min), scraped 3136 items (at 0 items/min)
+2026-05-13 01:39:06 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/49-orient
+2026-05-13 01:39:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/50-remax?page=2
+2026-05-13 01:39:09 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/brand/98-redragon?page=2
+2026-05-13 01:39:14 [tunisiatech] INFO: [tunisiatech] 10 products on https://tunisiatech.tn/brand/224-oraimo
+2026-05-13 01:39:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/36-oppo
+2026-05-13 01:39:21 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/235-raf?page=2
+2026-05-13 01:39:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/174-realme?page=2
+2026-05-13 01:39:27 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/brand/183-oneplus
+2026-05-13 01:39:31 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/186-oale
+2026-05-13 01:39:32 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=3
+2026-05-13 01:39:36 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/51-smartec?page=4
+2026-05-13 01:39:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/171-philips?page=2
+2026-05-13 01:39:46 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/38-nokia
+2026-05-13 01:39:51 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=7
+2026-05-13 01:39:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/200-nardi
+2026-05-13 01:39:56 [scrapy.extensions.logstats] INFO: Crawled 4294 pages (at 15 pages/min), scraped 3136 items (at 0 items/min)
+2026-05-13 01:40:05 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/brand/119-muse
+2026-05-13 01:40:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/74-msi
+2026-05-13 01:40:08 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/brand/161-moulinex
+2026-05-13 01:40:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/50-remax?page=3
+2026-05-13 01:40:17 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/48-motorola
+2026-05-13 01:40:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/49-orient?page=2
+2026-05-13 01:40:22 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/175-mont-blanc
+2026-05-13 01:40:27 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/235-raf?page=3
+2026-05-13 01:40:30 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/brand/174-realme?page=3
+2026-05-13 01:40:31 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/36-oppo?page=2
+2026-05-13 01:40:32 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/256-momo-design
+2026-05-13 01:40:33 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=4
+2026-05-13 01:40:35 [tunisiatech] INFO: [tunisiatech] 6 products on https://tunisiatech.tn/brand/122-millenium
+2026-05-13 01:40:36 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/brand/148-midea
+2026-05-13 01:40:37 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/38-nokia?page=2
+2026-05-13 01:40:39 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=8
+2026-05-13 01:40:39 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/200-nardi?page=2
+2026-05-13 01:40:43 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/74-msi?page=2
+2026-05-13 01:40:44 [tunisiatech] INFO: [tunisiatech] 7 products on https://tunisiatech.tn/brand/171-philips?page=3
+2026-05-13 01:40:45 [tunisiatech] INFO: [tunisiatech] 8 products on https://tunisiatech.tn/brand/50-remax?page=4
+2026-05-13 01:40:48 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/49-orient?page=3
+2026-05-13 01:40:49 [tunisiatech] INFO: [tunisiatech] 9 products on https://tunisiatech.tn/brand/228-mibro
+2026-05-13 01:40:50 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/235-raf?page=4
+2026-05-13 01:40:51 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/57-maxwell
+2026-05-13 01:40:53 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/36-oppo?page=3
+2026-05-13 01:40:53 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/173-marque-soehnle-tunisie
+2026-05-13 01:40:54 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=5
+2026-05-13 01:40:55 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/154-marque-hisense
+2026-05-13 01:40:56 [scrapy.extensions.logstats] INFO: Crawled 4324 pages (at 30 pages/min), scraped 3138 items (at 2 items/min)
+2026-05-13 01:40:56 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/262-magefesa
+2026-05-13 01:40:57 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/brand/38-nokia?page=3
+2026-05-13 01:40:58 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=9
+2026-05-13 01:40:59 [tunisiatech] INFO: [tunisiatech] 2 products on https://tunisiatech.tn/brand/142-luxell
+2026-05-13 01:41:01 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/brand/40-lp
+2026-05-13 01:41:02 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/74-msi?page=3
+2026-05-13 01:41:03 [tunisiatech] INFO: [tunisiatech] 11 products on https://tunisiatech.tn/brand/193-logicom
+2026-05-13 01:41:04 [tunisiatech] INFO: [tunisiatech] 5 products on https://tunisiatech.tn/brand/145-livoo
+2026-05-13 01:41:05 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/247-lisimo
+2026-05-13 01:41:07 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/49-orient?page=4
+2026-05-13 01:41:08 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/135-lg
+2026-05-13 01:41:09 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/233-lesia
+2026-05-13 01:41:10 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/47-lenovo
+2026-05-13 01:41:11 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/198-ldnio
+2026-05-13 01:41:13 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/36-oppo?page=4
+2026-05-13 01:41:14 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/35-samsung?page=6
+2026-05-13 01:41:15 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/154-marque-hisense?page=2
+2026-05-13 01:41:16 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/118-lbest
+2026-05-13 01:41:18 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/147-laxtek
+2026-05-13 01:41:18 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/114-xiaomi?page=10
+2026-05-13 01:41:20 [tunisiatech] INFO: QUEUED (no ref) | Smartphone Xiaomi Redmi Note 15 Pro 5G 8Go 25 | 1339.000 TND
+2026-05-13 01:41:21 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/238-lava
+2026-05-13 01:41:23 [tunisiatech] INFO: [tunisiatech] 12 products on https://tunisiatech.tn/brand/74-msi?page=4
+2026-05-13 01:41:23 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/138-ksix
+2026-05-13 01:41:25 [tunisiatech] INFO: [tunisiatech] 0 products on https://tunisiatech.tn/brand/162-krups
+2026-05-13 01:41:26 [tunisiatech] INFO: [tunisiatech] 3 products on https://tunisiatech.tn/brand/248-kozano
+2026-05-13 01:41:26 [tunisiatech] INFO: [tunisiatech] 1 products on https://tunisiatech.tn/brand/49-orient?page=5
+2026-05-13 01:41:28 [tunisiatech] INFO: [tunisiatech] 4 products on https://tunisiatech.tn/brand/135-lg?page=2
